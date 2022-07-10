@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clavier_numero"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_clavier_chant"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_5sdp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:background="@drawable/bg_display" />
+
+
+    <RelativeLayout
+        android:id="@+id/recherche_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_18sdp"
+        android:background="@drawable/bg_display">
+
+        <TextView
+            android:id="@+id/txvDisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/merienda_regular"
+            android:paddingTop="@dimen/_4sdp"
+            android:paddingBottom="@dimen/_4sdp"
+            android:textAlignment="center"
+            android:textColor="?attr/color_icones"
+            android:textSize="@dimen/_24ssp" />
+
+    </RelativeLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_20sdp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btn1"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/btn_bg"
+                android:fontFamily="@font/merienda_regular"
+                android:text="1"
+                android:textColor="?attr/titre_chant"
+                android:textSize="@dimen/_18sdp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn2"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/btn_bg"
+                android:fontFamily="@font/merienda_regular"
+                android:text="2"
+                android:textColor="?attr/titre_chant"
+                android:textSize="@dimen/_18sdp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn3"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/btn_bg"
+                android:fontFamily="@font/merienda_regular"
+                android:text="3"
+                android:textColor="?attr/titre_chant"
+                android:textSize="@dimen/_18sdp"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btn4"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/btn_bg"
+                android:fontFamily="@font/merienda_regular"
+                android:text="4"
+                android:textColor="?attr/titre_chant"
+                android:textSize="@dimen/_18sdp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn5"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/btn_bg"
+                android:fontFamily="@font/merienda_regular"
+                android:text="5"
+                android:textColor="?attr/titre_chant"
+                android:textSize="@dimen/_18sdp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn6"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/btn_bg"
+                android:fontFamily="@font/merienda_regular"
+                android:text="6"
+                android:textColor="?attr/titre_chant"
+                android:textSize="@dimen/_18sdp"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btn7"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/btn_bg"
+                android:fontFamily="@font/merienda_regular"
+                android:text="7"
+                android:textColor="?attr/titre_chant"
+                android:textSize="@dimen/_18sdp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn8"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/btn_bg"
+                android:fontFamily="@font/merienda_regular"
+                android:text="8"
+                android:textColor="?attr/titre_chant"
+                android:textSize="@dimen/_18sdp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn9"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/btn_bg"
+                android:fontFamily="@font/merienda_regular"
+                android:text="9"
+                android:textColor="?attr/titre_chant"
+                android:textSize="@dimen/_18sdp"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/btn_sup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/btn_bg"
+                android:padding="@dimen/_9sdp"
+                android:src="@drawable/ic_sup"
+                app:tint="?attr/color_icones" />
+
+            <Button
+                android:id="@+id/btn0"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/btn_bg"
+                android:fontFamily="@font/merienda_regular"
+                android:text="0"
+                android:textColor="?attr/titre_chant"
+                android:textSize="@dimen/_18sdp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_ok"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/btn_bg"
+                android:fontFamily="@font/roboto_regular"
+                android:text="Go"
+                android:textColor="?attr/color_icones"
+                android:textSize="@dimen/_18sdp"
+                android:textStyle="bold" />
+        </TableRow>
+    </TableLayout>
+
+
+</LinearLayout>

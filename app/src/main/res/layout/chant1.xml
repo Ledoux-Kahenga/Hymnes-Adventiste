@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/primary_fond_chant"
+    android:fitsSystemWindows="true"
+    tools:context=".MainActivity3">
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/primary_fond_chant"
+        app:elevation="0dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageBacke"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_23sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:src="@drawable/ic_bac"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="?attr/texte_primary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_regular"
+            android:paddingEnd="@dimen/_10sdp"
+            android:text="Nyimbo za kristo"
+            android:textColor="?attr/color_icones"
+            android:textSize="@dimen/_14ssp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <ImageView
+                    android:id="@+id/audio"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:src="@drawable/ic_play_btn"
+                    app:tint="?attr/color_icones" />
+
+                <ImageView
+                    android:id="@+id/font"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_26sdp"
+                    android:layout_marginStart="@dimen/_14sdp"
+                    android:src="@drawable/ic_style_font"
+                    app:tint="?attr/texte_primary" />
+
+                <ImageView
+                    android:id="@+id/imageBacks"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_28sdp"
+                    android:layout_marginStart="@dimen/_14sdp"
+                    android:layout_marginEnd="@dimen/_14sdp"
+                    android:src="@drawable/ic_coeur"
+                    app:tint="?attr/texte_primary" />
+
+                <ImageView
+                    android:id="@+id/ref1"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_26sdp"
+                    android:layout_marginEnd="@dimen/_14sdp"
+                    android:src="@drawable/ic_change"
+                    app:tint="?attr/texte_primary" />
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </com.google.android.material.appbar.MaterialToolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_44sdp"
+        android:layout_marginRight="@dimen/_4sdp"
+        android:layout_marginBottom="@dimen/_4sdp"
+        android:background="@drawable/bg_chant"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appBar"
+        app:layout_constraintTop_toTopOf="@id/appBar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/_30sdp"
+            android:orientation="vertical">
+
+
+            <View
+                android:id="@+id/barTop"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_marginStart="@dimen/_18sdp"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:layout_marginEnd="@dimen/_18sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:background="?attr/bar_view" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/doh"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:fontFamily="@font/roboto_regular"-->
+<!--                        android:textColor="?attr/auteur_chant"-->
+<!--                        android:textSize="@dimen/_16ssp"-->
+<!--                        android:layout_marginLeft="@dimen/_18sdp"-->
+<!--                        android:text="Doh is G"-->
+<!--                        android:textStyle="bold"/>-->
+<!--                    <TextView-->
+<!--                        android:id="@+id/refEnglais"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:fontFamily="@font/merienda_regular"-->
+<!--                        android:textColor="?attr/auteur_chant"-->
+<!--                        android:textSize="@dimen/_12ssp"-->
+<!--                        android:layout_marginLeft="@dimen/_16sdp"-->
+<!--                        android:text="C.H.683"-->
+<!--                        android:textStyle="bold"/>-->
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/movie_texte"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/merienda_regular"
+                    android:text="001"
+                    android:textAlignment="center"
+                    android:textColor="?attr/texte_primary_secondaire"
+                    android:textSize="@dimen/_40ssp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/h_l_ref"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@id/movie_texte"
+                    android:layout_marginRight="@dimen/_16sdp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="@string/h_l_496"
+                    android:textColor="?attr/auteur_chant"
+                    android:textSize="@dimen/_14ssp"
+                    android:textStyle="bold"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/movie_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/roboto_regular"
+                android:paddingStart="@dimen/_12sdp"
+                android:paddingEnd="@dimen/_12sdp"
+                android:text="001 Vous, qui sur la terre habitez"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="?attr/texte_primary_secondaire"
+                android:textSize="@dimen/_22ssp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/movie_auteur"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:layout_marginEnd="@dimen/_4sdp"
+                android:fontFamily="@font/merienda_regular"
+                android:text="Lorem ip dolor sit amet"
+                android:textAlignment="center"
+                android:textColor="?attr/auteur_chant"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"/>
+
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_marginStart="@dimen/_18sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_18sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:background="?attr/bar_view" />
+
+            <TextView
+                android:id="@+id/movie_texte_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="Lorem ip dolor sit amet"
+                android:textAlignment="center"
+                android:textColor="?attr/texte_primary_chant"
+                android:textSize="@dimen/_20ssp" />
+
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_sheet_nzk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:layout_marginBottom="@dimen/_12sdp"
+        android:background="?attr/texte_primary"
+        android:src="@drawable/ic_keypad"
+        android:tint="?attr/color_icones"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

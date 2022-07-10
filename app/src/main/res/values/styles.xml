@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppThemeLight" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primary_fond_secondaire</item>
+        <item name="android:colorPrimaryDark" tools:targetApi="lollipop">@color/primary_fond_status</item>
+        <item name="colorAccent">@color/primary_fond</item>
+        <item name="android:navigationBarColor">@color/primary_fond_secondaire</item>
+
+        <!--   PRIMARY FOND FOR SPLASH SCRENN     -->
+        <item name="primary_fond_splash">#EBDED1</item>
+
+        <item name="primary_fond">#EBDED1</item>
+        <item name="primary_fond_secondaire">#F5F2E3</item>
+        <item name="primary_fond_status">#DC483623</item>
+        <item name="texte_primary">#483623</item>
+        <item name="texte_primary_secondaire">#AB8A6A</item>
+        <item name="color_icones">#62717A</item>
+        <item name="bg_recherche">#D3C7BC</item>
+        <item name="black">#000000</item>
+        <item name="white">#FFFFFF</item>
+        <item name="bg_chant">#F5F2E3</item>
+        <item name="bar_view">#62717A</item>
+        <item name="auteur">#62717A</item>
+        <item name="titre_chant">#AB8A6A</item>
+
+        <!--    COULEUR CHANT    -->
+        <item name="primary_fond_chant">#EBDED1</item>
+        <item name="texte_primary_chant">#483623</item>
+        <item name="auteur_chant">#62717A</item>
+
+        <!--    BTN SUBMIT    -->
+        <item name="primary_fond_SUBMIT">#EBDED1</item>
+
+    </style>
+
+    <style name="AppThemeDark" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#212121</item>
+        <item name="android:colorPrimaryDark" tools:targetApi="lollipop">#000000</item>
+        <item name="colorAccent">#212121</item>
+        <item name="android:navigationBarColor">#000000</item>
+
+        <!--   PRIMARY FOND FOR SPLASH SCRENN     -->
+        <item name="primary_fond_splash">#1D1D1F</item>
+
+        <item name="primary_fond">#1D1D1F</item>
+        <item name="primary_fond_secondaire">#000000</item>
+        <item name="primary_fond_status">#DC483623</item>
+        <item name="texte_primary">#FFFFFF</item>
+        <item name="texte_primary_secondaire">#AB8A6A</item>
+        <item name="color_icones">#ffffff</item>
+        <item name="bg_recherche">#000000</item>
+        <item name="black">#000000</item>
+        <item name="white">#FFFFFF</item>
+        <item name="bg_chant">#1D1D1F</item>
+        <item name="bar_view">#FFFFFF</item>
+        <item name="auteur">#AB8A6A</item>
+        <item name="titre_chant">#FFFFFF</item>
+
+        <item name="primary_fond_chant">#000000</item>
+        <item name="texte_primary_chant">#FFFFFF</item>
+        <item name="auteur_chant">#FFFFFF</item>
+
+        <!--    BTN SUBMIT    -->
+        <item name="primary_fond_SUBMIT">#FFFFFF</item>
+
+    </style>
+
+    <style name="SettingsLight" parent="AppThemeLight">
+        <item name="android:windowAnimationStyle">@style/WindowsAnimationTransition</item>
+    </style>
+
+    <style name="SettingsDark" parent="AppThemeDark">
+        <item name="android:windowAnimationStyle">@style/WindowsAnimationTransition</item>
+    </style>
+
+    <style name="WindowsAnimationTransition">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+    </style>
+
+    <style name="Chant" parent="AppThemeLight">
+        <item name="android:colorPrimaryDark" tools:targetApi="lollipop">@color/primary_fond</item>
+        <item name="android:navigationBarColor">@color/primary_fond</item>
+    </style>
+
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_in_bottom</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_bottom</item>
+
+    </style>
+
+    <style name="DialogAnimation_pageIntrouvable">
+        <item name="android:windowEnterAnimation">@anim/bouce</item>
+
+    </style>
+
+</resources>

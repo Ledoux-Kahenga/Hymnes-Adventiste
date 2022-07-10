@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "1081339255069",
+    "firebase_url": "https://projet-2fbc1-default-rtdb.firebaseio.com",
+    "project_id": "projet-2fbc1",
+    "storage_bucket": "projet-2fbc1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1081339255069:android:9ced6ad4e2a6c0f72e69f4",
+        "android_client_info": {
+          "package_name": "com.sda.projet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1081339255069-1ml1ff0ar93dpcog1tilqlf15ob1b6sm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC39q_snmZQepQG8q5j8evFfZWcqFgvf5E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1081339255069-1ml1ff0ar93dpcog1tilqlf15ob1b6sm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1081339255069:android:0b794da94a3e12cb2e69f4",
+        "android_client_info": {
+          "package_name": "com.sda.sda_hymnes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1081339255069-1ml1ff0ar93dpcog1tilqlf15ob1b6sm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC39q_snmZQepQG8q5j8evFfZWcqFgvf5E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1081339255069-1ml1ff0ar93dpcog1tilqlf15ob1b6sm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

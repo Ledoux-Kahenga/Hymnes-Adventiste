@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/bg_chant"
+    android:orientation="vertical"
+    android:padding="@dimen/_6sdp">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_marginStart="@dimen/_6sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_6sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:background="?attr/bar_view" />
+
+    <TextView
+        android:id="@+id/titreacceuil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/_2sdp"
+        android:fontFamily="@font/roboto_regular"
+        android:includeFontPadding="false"
+        android:text="@string/avis_de_recherche"
+        android:textColor="?attr/texte_primary_secondaire"
+        android:textSize="@dimen/_20ssp"
+        android:textStyle="bold" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:layout_marginStart="@dimen/_6sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_6sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:background="?attr/bar_view" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/aide"
+        android:textAlignment="center"
+        android:textColor="?attr/texte_primary_chant"
+        android:textSize="@dimen/_14ssp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:text="@string/click"
+        android:textAlignment="center"
+        android:textColor="?attr/texte_primary_chant"
+        android:textSize="@dimen/_16ssp"
+        android:textStyle="bold|italic"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+       <ImageView
+           android:id="@+id/Whatsapp"
+           android:layout_width="@dimen/_40sdp"
+           android:layout_height="@dimen/_40sdp"
+           android:src="@drawable/ic_whathsapp"/>
+        <ImageView
+            android:id="@+id/Gmail"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+           android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:layout_toEndOf="@id/Whatsapp"
+            android:src="@drawable/ic_gmail"/>
+        <ImageView
+            android:id="@+id/Sms"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_toEndOf="@id/Gmail"
+            android:src="@drawable/ic_sms"/>
+    </RelativeLayout>
+
+</LinearLayout>

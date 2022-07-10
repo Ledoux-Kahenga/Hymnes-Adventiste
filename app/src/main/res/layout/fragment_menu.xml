@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/primary_fond_secondaire"
+    tools:context=".navigation.MenuFragment">
+
+    <TextView
+        android:id="@+id/titremenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_14sdp"
+        android:fontFamily="@font/ubuntu_bold"
+        android:includeFontPadding="false"
+        android:text="@string/menu"
+        android:textColor="?attr/texte_primary"
+        android:textSize="@dimen/_20ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@drawable/bg_menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titremenu">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:id="@+id/h_el_l"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_13sdp"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="2dp">
+
+
+                <ImageView
+                    android:id="@+id/ic_hymnes"
+                    android:layout_width="23dp"
+                    android:layout_height="22dp"
+                    android:layout_marginStart="@dimen/_3sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:src="@drawable/ic_notebook1"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/ic_hymnes"
+                    android:layout_toRightOf="@+id/ic_hymnes"
+                    android:fontFamily="@font/ubuntu_regular"
+                    android:text="@string/hymnes_et_louages"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?attr/texte_primary"
+                    android:textSize="@dimen/_14ssp" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/nzk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_13sdp"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="2dp">
+
+
+                <ImageView
+                    android:id="@+id/ic_nyimbo"
+                    android:layout_width="23dp"
+                    android:layout_height="22dp"
+                    android:layout_marginStart="@dimen/_3sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:src="@drawable/ic_notebook2" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:layout_toEndOf="@+id/ic_nyimbo"
+                    android:layout_toRightOf="@+id/ic_nyimbo"
+                    android:fontFamily="@font/ubuntu_regular"
+                    android:text="@string/nyimbo_za_kristo"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?attr/texte_primary"
+                    android:textSize="@dimen/_14ssp" />
+
+            </RelativeLayout>
+
+<!--            <RelativeLayout-->
+<!--                android:id="@+id/mode_sombre"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginBottom="@dimen/_13sdp"-->
+<!--                android:clickable="true"-->
+<!--                android:focusable="true"-->
+<!--                android:padding="2dp">-->
+
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/ic_sombre"-->
+<!--                    android:layout_width="24dp"-->
+<!--                    android:layout_height="24dp"-->
+<!--                    android:src="@drawable/ic_dark_mode"-->
+<!--                    android:layout_marginEnd="@dimen/_12sdp"-->
+<!--                    app:tint="?attr/texte_primary" />-->
+
+<!--                <Switch-->
+<!--                    android:id="@+id/swich_dark"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_toRightOf="@id/text_sombre"-->
+<!--                    android:layout_marginEnd="@dimen/_2sdp" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/text_sombre"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_toEndOf="@+id/ic_sombre"-->
+<!--                    android:layout_toRightOf="@+id/ic_sombre"-->
+<!--                    android:fontFamily="@font/ubuntu_regular"-->
+<!--                    android:textColor="?attr/texte_primary"-->
+<!--                    android:text="@string/mode_sombre"-->
+<!--                    android:textAppearance="?attr/textAppearanceBody2"-->
+<!--                    android:textSize="@dimen/_14ssp" />-->
+
+<!--            </RelativeLayout>-->
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_marginBottom="@dimen/_13sdp"
+                android:background="?attr/texte_primary_secondaire"/>
+
+            <RelativeLayout
+                android:id="@+id/parametre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_13sdp"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="2dp">
+
+
+                <ImageView
+                    android:id="@+id/ic_paramatre"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:src="@drawable/ic_parametre"
+                    app:tint="?attr/texte_primary" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/ic_paramatre"
+                    android:layout_toRightOf="@+id/ic_paramatre"
+                    android:fontFamily="@font/ubuntu_regular"
+                    android:text="@string/param_tres"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?attr/texte_primary"
+                    android:textSize="@dimen/_14ssp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_13sdp"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="2dp">
+
+
+                <ImageView
+                    android:id="@+id/ic_rate"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:src="@drawable/ic_rate"
+                    app:tint="?attr/texte_primary" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/ic_rate"
+                    android:layout_toRightOf="@+id/ic_rate"
+                    android:fontFamily="@font/ubuntu_regular"
+                    android:text="@string/noter_l_application"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?attr/texte_primary"
+                    android:textSize="@dimen/_14ssp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/bug"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_13sdp"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="2dp">
+
+
+                <ImageView
+                    android:id="@+id/ic_bug"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:src="@drawable/ic_bug"
+                    app:tint="?attr/texte_primary" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/ic_bug"
+                    android:layout_toRightOf="@+id/ic_bug"
+                    android:fontFamily="@font/ubuntu_regular"
+                    android:text="@string/bug"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?attr/texte_primary"
+                    android:textSize="@dimen/_14ssp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/partager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_13sdp"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="2dp">
+
+
+                <ImageView
+                    android:id="@+id/ic_partage"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:src="@drawable/ic_share"
+                    app:tint="?attr/texte_primary" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/ic_partage"
+                    android:layout_toRightOf="@+id/ic_partage"
+                    android:fontFamily="@font/ubuntu_regular"
+                    android:text="@string/partager"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?attr/texte_primary"
+                    android:textSize="@dimen/_14ssp" />
+
+            </RelativeLayout>
+
+<!--            <RelativeLayout-->
+<!--                android:id="@+id/langue"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginBottom="@dimen/_13sdp"-->
+<!--                android:clickable="true"-->
+<!--                android:focusable="true"-->
+<!--                android:padding="2dp">-->
+
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/ic_langue"-->
+<!--                    android:layout_width="24dp"-->
+<!--                    android:layout_height="24dp"-->
+<!--                    android:src="@drawable/ic_langue"-->
+<!--                    android:layout_marginEnd="@dimen/_12sdp"-->
+<!--                    app:tint="?attr/texte_primary" />-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_toEndOf="@+id/ic_langue"-->
+<!--                    android:layout_toRightOf="@+id/ic_langue"-->
+<!--                    android:fontFamily="@font/ubuntu_regular"-->
+<!--                    android:textColor="?attr/texte_primary"-->
+<!--                    android:text="@string/changer_langue"-->
+<!--                    android:textAppearance="?attr/textAppearanceBody2"-->
+<!--                    android:textSize="@dimen/_14ssp" />-->
+
+<!--            </RelativeLayout>-->
+
+            <RelativeLayout
+                android:id="@+id/contact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_13sdp"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="2dp">
+
+
+                <ImageView
+                    android:id="@+id/ic_contact"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:src="@drawable/ic_phone"
+                    app:tint="?attr/texte_primary" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/ic_contact"
+                    android:layout_toRightOf="@+id/ic_contact"
+                    android:fontFamily="@font/ubuntu_regular"
+                    android:text="@string/contacter_le_developpeur"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?attr/texte_primary"
+                    android:textSize="@dimen/_14ssp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/apropos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_13sdp"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingLeft="@dimen/_2sdp"
+                android:paddingTop="@dimen/_2sdp"
+                android:paddingRight="@dimen/_2sdp"
+                android:paddingBottom="42dp">
+
+
+                <ImageView
+                    android:id="@+id/ic_apropos"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:src="@drawable/ic_apropos"
+                    app:tint="?attr/texte_primary" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/ic_apropos"
+                    android:layout_toRightOf="@+id/ic_apropos"
+                    android:fontFamily="@font/ubuntu_regular"
+                    android:text="@string/propos"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?attr/texte_primary"
+                    android:textSize="@dimen/_14ssp" />
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Hymnes Adventiste</string>
+
+    <string name="bienvenu">Karibu !</string>
+    <string name="rechercher_des_chants">ingiza kichwa au maandishi</string>
+    <string name="menu">Menyu</string>
+    <string name="hymnes_et_louages">Hymnes et louages</string>
+    <string name="nyimbo_za_kristo">Nyimbo za kristo</string>
+    <string name="notes">Notes</string>
+    <string name="mode_sombre">Dark Mode</string>
+    <string name="historique">Historia</string>
+    <string name="noter_l_application">Rate app hii</string>
+    <string name="contacter_le_developpeur">Wasiliana na msanidi programu</string>
+    <string name="partager">Shambaza programu</string>
+    <string name="bug">Ripoti mdudu</string>
+    <string name="changer_langue">Chagua lugha <b> <u>Sw</u> </b></string>
+    <string name="num">Num</string>
+    <string name="auteur">Auteur</string>
+    <string name="psaume_136_12"><b>1 Mambo ya siku</b> 16:23</string>
+    <string name="param_tres">Mipangilio</string>
+    <string name="propos">Kuhusu</string>
+    <string name="receuil_de_chants">Kitabu cha Nyimbo</string>
+    <string name="h_l_496"><![CDATA[H&L: 496]]></string>
+    <string name="aide">Unaweza kutusaidia kujenga na kukamilisha programu hii, ikiwa utaweza kutupatia Kumbukumbu la wimbo huu.</string>
+    <string name="soumission">Tuma kumbukumbu</string>
+    <string name="click">Clickez sur le bouton si-bas</string>
+    <string name="avis_de_recherche">Avis de recherche</string>
+    <string name="appuyer_de_nouveau_pour_quitter">Bofya tena ili kufunga programu</string>
+    <string name="clicker_langue">Bonyeza</string>
+    <string name="langues">Lugha</string>
+    <string name="activer">Dark mode imewashwa</string>
+    <string name="desactiver">Dark mode imezimwa</string>
+    <string name="numero">Il faut entrer un numéro entre 1 et 220</string>
+
+</resources>

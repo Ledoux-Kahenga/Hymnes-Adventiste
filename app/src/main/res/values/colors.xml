@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary_fond">#EBDED1</color>
+    <color name="primary_fond_secondaire">#F5F2E3</color>
+    <color name="primary_fond_status">#DC483623</color>
+    <color name="texte_primary">#483623</color>
+    <color name="texte_primary_secondaire">#AB8A6A</color>
+    <color name="color_icones">#62717A</color>
+    <color name="bg_recherche">#D3C7BC</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="bg_chant">#F5F2E3</color>
+    <color name="titre_chant">#F5F2E3</color>
+    <color name="dark">#212121</color>
+    <color name="primary_fond_splash1">#EBDED1</color>
+    <color name="primary_fond_splash2">#1D1D1F</color>
+</resources>

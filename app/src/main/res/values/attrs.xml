@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="primary_fond" format="color"/>
+    <attr name="primary_fond_secondaire" format="color"/>
+    <attr name="primary_fond_status" format="color"/>
+    <attr name="texte_primary" format="color"/>
+    <attr name="texte_primary_secondaire" format="color"/>
+    <attr name="color_icones" format="color"/>
+    <attr name="bg_recherche" format="color"/>
+    <attr name="black" format="color"/>
+    <attr name="white" format="color"/>
+    <attr name="bg_chant" format="color"/>
+    <attr name="bar_view" format="color"/>
+    <attr name="auteur" format="color"/>
+    <attr name="titre_chant" format="color"/>
+
+    <!--  COULEUR CHANT  -->
+    <attr name="primary_fond_chant" format="color"/>
+    <attr name="texte_primary_chant" format="color"/>
+    <attr name="auteur_chant" format="color"/>
+
+    <!--  SPLASH SCREEN  -->
+    <attr name="primary_fond_splash" format="color"/>
+
+    <!--  BTN SUBMIT  -->
+    <attr name="primary_fond_SUBMIT" format="color"/>
+
+</resources>

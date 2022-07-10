@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.sda.projet">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".database.DbPersistence"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppThemeLight">
+        <activity android:name=".menu.Apropos"></activity>
+        <activity
+            android:name=".menu.AproposListActivity"
+            android:label="@string/title_apropos_list"
+            android:theme="@style/AppThemeLight.NoActionBar" />
+        <activity
+            android:name=".menu.AproposDetailActivity"
+            android:label="@string/title_apropos_detail"
+            android:parentActivityName=".menu.AproposListActivity"
+            android:theme="@style/AppThemeLight.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.sda.projet.menu.AproposListActivity" />
+        </activity>
+        <activity
+            android:name=".parametres.Parametres"
+            android:theme="@style/SettingsLight" />
+        <activity
+            android:name=".MainActivity2"
+            android:theme="@style/Chant" />
+        <activity
+            android:name=".MainActivity3"
+            android:theme="@style/Chant" />
+        <activity android:name=".SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".chant.Nyimbo_z_kristo" />
+        <activity android:name=".chant.Hymnes_et_lg" />
+        <activity android:name=".MainActivity" />
+    </application>
+
+</manifest>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Hymnes Adventiste</string>
+
+    <string name="bienvenu">Welecome !</string>
+    <string name="rechercher_des_chants">Search for songs</string>
+    <string name="menu">Menu</string>
+    <string name="hymnes_et_louages">Hymnes et louages</string>
+    <string name="nyimbo_za_kristo">Nyimbo za kristo</string>
+    <string name="notes">Notes</string>
+    <string name="mode_sombre">Dark mode</string>
+    <string name="historique">Historique</string>
+    <string name="noter_l_application">Rate the application</string>
+    <string name="contacter_le_developpeur">Call the developer</string>
+    <string name="partager">Share the application</string>
+    <string name="bug">Repport a bug</string>
+    <string name="changer_langue">Change language <b> <u>En</u> </b></string>
+    <string name="num">Num</string>
+    <string name="auteur">Auteur</string>
+    <string name="psaume_136_12"><b>1 Chronicles</b> 16:23</string>
+    <string name="param_tres">Settings</string>
+    <string name="propos">About</string>
+    <string name="receuil_de_chants">Songbook</string>
+    <string name="h_l_496"><![CDATA[H&L: 496]]></string>
+    <string name="aide">You can help us build and finalize the application if you submit the reference of this song.</string>
+    <string name="soumission">Submit the reference</string>
+    <string name="click">Clickez sur le bouton si-bas</string>
+    <string name="avis_de_recherche">Avis de recherche</string>
+    <string name="appuyer_de_nouveau_pour_quitter">Press again to exit</string>
+    <string name="clicker_langue">Click</string>
+    <string name="langues">Languages</string>
+    <string name="activer">Dark mode On</string>
+    <string name="desactiver">Dark mode Off</string>
+    <string name="numero">Il faut entrer un numéro entre 1 et 220</string>
+
+</resources>

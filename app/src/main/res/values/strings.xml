@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Hymnes Adventiste</string>
+
+    <string name="bienvenu">Bienvenue !</string>
+    <string name="rechercher_des_chants">Entrer un mot du titre ou du texte</string>
+    <string name="menu">Menu</string>
+    <string name="hymnes_et_louages">Hymnes et louages</string>
+    <string name="nyimbo_za_kristo">Nyimbo za kristo</string>
+    <string name="notes">Notes</string>
+    <string name="mode_sombre">Mode sombre</string>
+    <string name="historique">Historique</string>
+    <string name="noter_l_application">Noter l\'application</string>
+    <string name="contacter_le_developpeur">Contacter le developpeur</string>
+    <string name="partager">Partager l\'application</string>
+    <string name="bug">Signaler un bug</string>
+    <string name="changer_langue">Changer langue <b> <u>Fr</u> </b></string>
+    <string name="num">Num</string>
+    <string name="auteur">Auteur</string>
+    <string name="psaume_136_12"><b>1 Chroniques 16:23</b></string>
+    <string name="param_tres">Paramètres</string>
+    <string name="propos">À propos</string>
+    <string name="receuil_de_chants">Receuil de chants</string>
+    <string name="title_apropos_list">Items</string>
+    <string name="title_apropos_detail">Apropos Detail</string>
+    <string name="h_l_496"><![CDATA[H&L: 496]]></string>
+    <string name="aide">Vous pouvez nous aider à bâtir et finaliser l\'application si vous soumettez la référence de ce chant.</string>
+    <string name="soumission">SOMETTEZ LA REFERENCE</string>
+    <string name="click">Clicker sur les boutons ci-bas pour Soumettre</string>
+    <string name="avis_de_recherche">Avis de recherche</string>
+    <string name="appuyer_de_nouveau_pour_quitter">Appuyer de nouveau pour quitter</string>
+    <string name="clicker_langue">Clicker</string>
+    <string name="langues">Langues</string>
+    <string name="activer">Mode Sombre activé</string>
+    <string name="desactiver">Mode Sombre desactivé</string>
+    <string name="numero">Il faut entrer un numéro entre 1 et 220</string>
+
+</resources>

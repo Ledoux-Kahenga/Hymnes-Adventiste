@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/ivDropDown_layout"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:padding="@dimen/_10sdp"
+        android:src="@drawable/ic_langue"/>
+
+    <TextView
+        android:id="@+id/tvDropDownayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_regular"
+        android:padding="@dimen/_10sdp"
+        android:text="Androchunk"
+        android:textColor="?attr/texte_primary"
+        android:textSize="@dimen/_16sdp" />
+
+
+
+</LinearLayout>
