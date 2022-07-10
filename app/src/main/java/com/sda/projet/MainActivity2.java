@@ -1,4 +1,12 @@
- package com.sda.projet;
+ /*
+ *  /**
+ *  * Created by TVB Ledoux on 10/07/22 22:06
+ *  * Copyright (c) 2022 . All rights reserved.
+ *  * Last modified 10/07/22 22:05
+ *
+ */
+
+package com.sda.projet;
 
  import android.os.Bundle;
  import android.widget.Toast;
