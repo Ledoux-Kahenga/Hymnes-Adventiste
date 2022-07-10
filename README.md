@@ -1,2 +1,4 @@
 # Hymnes-Adventiste
-Application de chant
+Application de cantiques d'adventiste
+
+
