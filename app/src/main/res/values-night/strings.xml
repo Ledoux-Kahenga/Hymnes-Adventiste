@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Created by TVB Ledoux on 10/07/22 22:19
+  ~  Copyright (c) 2022 . All rights reserved.
+  ~  Last modified 10/07/22 22:15
+  -->
+
 <resources>
     <string name="receuil_de_chants">Receuil de chants</string>
     <string name="h_l_496"><![CDATA[H&L: 496]]></string>

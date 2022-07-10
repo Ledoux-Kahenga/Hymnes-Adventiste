@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Created by TVB Ledoux on 10/07/22 22:19
+  ~  Copyright (c) 2022 . All rights reserved.
+  ~  Last modified 10/07/22 22:15
+  -->
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"

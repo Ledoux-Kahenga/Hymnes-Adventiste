@@ -1,3 +1,9 @@
+/*
+ *  Created by TVB Ledoux on 10/07/22 22:19
+ *  Copyright (c) 2022 . All rights reserved.
+ *  Last modified 10/07/22 22:15
+ */
+
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     repositories {
