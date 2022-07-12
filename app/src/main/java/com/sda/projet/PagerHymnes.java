@@ -1,7 +1,7 @@
 /*
- *  Created by TVB Ledoux on 10/07/22 22:19
+ *  Created by TVB Ledoux on 12/07/22 21:29
  *  Copyright (c) 2022 . All rights reserved.
- *  Last modified 10/07/22 22:15
+ *  Last modified 12/07/22 21:28
  */
 
 package com.sda.projet;
@@ -10,6 +10,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.Environment;
 import android.os.Parcelable;
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -17,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
@@ -24,6 +26,7 @@ import androidx.viewpager.widget.PagerAdapter;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,8 +35,8 @@ public class PagerHymnes extends PagerAdapter {
     Context context;
     List<MainModel> mainModelList;
     LayoutInflater inflater;
-    private  boolean flags = true;
-    private  MediaPlayer mediaPlayer;
+//    private  boolean flags = true;
+//    private  MediaPlayer mediaPlayer;
 //    private static MediaPlayer mp2 = null;
 //    private static boolean myIsPlaying = false;
 //    private static int nowPlaying;
@@ -84,6 +87,7 @@ public class PagerHymnes extends PagerAdapter {
         TextView auteur = (TextView) view.findViewById(R.id.movie_auteur);
         ImageView audio = (ImageView) view.findViewById(R.id.audio);
         ImageView ref = (ImageView) view.findViewById(R.id.ref);
+        String midi;
 
 
         //set data
@@ -92,11 +96,8 @@ public class PagerHymnes extends PagerAdapter {
         contenu.setText(Html.fromHtml(mainModelList.get(position).contenu));
         auteur.setText(Html.fromHtml(mainModelList.get(position).auteur));
         refer =  mainModelList.get(position).ref;
+        midi = mainModelList.get(position).chemin;
          int varRef = Integer.parseInt(refer);
-
-        final String[] cheminAudio = new String[1];
-
-         cheminAudio[0] = mainModelList.get(position).chemin;
 
 
         ref.setOnClickListener(new View.OnClickListener() {
@@ -115,28 +116,17 @@ public class PagerHymnes extends PagerAdapter {
         });
 
 
-//        mediaPlayer = MediaPlayer.create(context,R.raw.a001);
-//        MediaPlayer.create(this, Integer.valueOf(resources.getIdentifier(stringBuilder2, "raw", context.getPackageName())).intValue());
-
 
                 audio.setOnClickListener(new View.OnClickListener() {
+
                     @Override
                     public void onClick(View v) {
 
-//                        int i=NumberFormat.getInstance().parse(s).intValue();
+                        int resID = context.getResources().getIdentifier(midi,"raw",context.getPackageName());
 
 
-//                        try{
-//                            cheminAudio[0] = String.valueOf(Integer.parseInt(cheminAudio[0]));
-//
-//
-//                        }catch (NumberFormatException e){
-//                            e.printStackTrace();
-//                        }
-
-
-//                        mediaPlayer = MediaPlayer.create(context, cheminAudio[0]);
-//                        mediaPlayer.start();
+                        MediaPlayer mediaPlayer = MediaPlayer.create(context, resID);
+                        mediaPlayer.start();
 
 
                     }

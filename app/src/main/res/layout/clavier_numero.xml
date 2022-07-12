@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~  Created by TVB Ledoux on 10/07/22 22:19
+  ~  Created by TVB Ledoux on 12/07/22 21:29
   ~  Copyright (c) 2022 . All rights reserved.
-  ~  Last modified 10/07/22 22:15
+  ~  Last modified 12/07/22 19:45
   -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -192,13 +192,12 @@
 
             <ImageView
                 android:id="@+id/btn_sup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/_36sdp"
+                android:layout_height="@dimen/_36sdp"
                 android:layout_margin="@dimen/_10sdp"
                 android:background="@drawable/btn_bg"
                 android:padding="@dimen/_9sdp"
-                android:src="@drawable/ic_sup"
-                app:tint="?attr/color_icones" />
+                android:src="@drawable/sup" />
 
             <Button
                 android:id="@+id/btn0"
@@ -213,18 +212,14 @@
                 android:textSize="@dimen/_18sdp"
                 android:textStyle="bold" />
 
-            <Button
+            <ImageView
                 android:id="@+id/btn_ok"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/_36sdp"
+                android:layout_height="@dimen/_36sdp"
                 android:layout_margin="@dimen/_10sdp"
                 android:background="@drawable/btn_bg"
-                android:fontFamily="@font/roboto_regular"
-                android:text="Go"
-                android:textColor="?attr/color_icones"
-                android:textSize="@dimen/_18sdp"
-                android:textStyle="bold" />
+                android:padding="@dimen/_9sdp"
+                android:src="@drawable/ok" />
         </TableRow>
     </TableLayout>
 

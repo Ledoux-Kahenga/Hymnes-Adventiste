@@ -1,7 +1,7 @@
 /*
- *  Created by TVB Ledoux on 10/07/22 22:19
+ *  Created by TVB Ledoux on 12/07/22 21:29
  *  Copyright (c) 2022 . All rights reserved.
- *  Last modified 10/07/22 22:15
+ *  Last modified 12/07/22 19:45
  */
 
 package com.sda.projet;
@@ -47,11 +47,11 @@ public class PagerNyimbo extends PagerAdapter {
     LayoutInflater inflater;
     LayoutInflater inflatere;
     FloatingActionButton bottomsheet;
-    Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0, btn_Go;
+    Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0;
 
 //    ArrayList<String> StrigList;
 //    MediaPlayer mediaPlayer;
-    ImageView btn_Sup;
+    ImageView btn_Sup, btn_Go;
     TextView affichage;
     private Dialog dialog;
     private Dialog dialogs;
@@ -225,6 +225,7 @@ public class PagerNyimbo extends PagerAdapter {
         bottomsheet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 
                 dialogs = new Dialog(context);
                 dialogs.setContentView(R.layout.clavier_numero);

@@ -1,7 +1,7 @@
 /*
- *  Created by TVB Ledoux on 10/07/22 22:19
+ *  Created by TVB Ledoux on 12/07/22 21:29
  *  Copyright (c) 2022 . All rights reserved.
- *  Last modified 10/07/22 22:15
+ *  Last modified 12/07/22 19:45
  */
 
 package com.sda.projet.chant;
@@ -66,8 +66,8 @@ public class Nyimbo_z_kristo extends AppCompatActivity {
     FloatingActionButton bottomsheet;
     Context context;
     //BOUTON CLAVIER
-    Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0, btn_Go;
-    ImageView btn_Sup;
+    Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0;
+    ImageView btn_Sup, btn_Go;
     TextView affichage;
 
     Dialog dialog;
