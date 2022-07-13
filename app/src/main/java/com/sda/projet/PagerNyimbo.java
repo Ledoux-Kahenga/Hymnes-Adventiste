@@ -1,7 +1,7 @@
 /*
- *  Created by TVB Ledoux on 12/07/22 21:29
+ *  Created by TVB Ledoux on 13/07/22 09:37
  *  Copyright (c) 2022 . All rights reserved.
- *  Last modified 12/07/22 19:45
+ *  Last modified 12/07/22 21:57
  */
 
 package com.sda.projet;
@@ -49,8 +49,7 @@ public class PagerNyimbo extends PagerAdapter {
     FloatingActionButton bottomsheet;
     Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0;
 
-//    ArrayList<String> StrigList;
-//    MediaPlayer mediaPlayer;
+    MediaPlayer mediaPlayer;
     ImageView btn_Sup, btn_Go;
     TextView affichage;
     private Dialog dialog;
@@ -96,10 +95,11 @@ public class PagerNyimbo extends PagerAdapter {
         TextView titre = (TextView) view.findViewById(R.id.movie_title);
         TextView contenu = (TextView) view.findViewById(R.id.movie_texte_description);
         TextView auteur = (TextView) view.findViewById(R.id.movie_auteur);
-//        ImageView audio = (ImageView) view.findViewById(R.id.audio);
+        ImageView audio = (ImageView) view.findViewById(R.id.audio);
         ImageView ref = (ImageView) view.findViewById(R.id.ref1);
         TextView refTexte = (TextView) view.findViewById(R.id.h_l_ref);
         ImageView back = view.findViewById(R.id.imageBacke);
+        String midi;
         int reference;
 
 
@@ -108,6 +108,7 @@ public class PagerNyimbo extends PagerAdapter {
         titre.setText(Html.fromHtml(mainModelList2.get(position).titre));
         contenu.setText(Html.fromHtml(mainModelList2.get(position).contenu));
         auteur.setText(Html.fromHtml(mainModelList2.get(position).auteur));
+        midi = mainModelList2.get(position).chemin;
         reference = mainModelList2.get(position).ref;
 
         if (reference == 0){
@@ -439,6 +440,20 @@ public class PagerNyimbo extends PagerAdapter {
             }
         });
 
+        audio.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                int resID = context.getResources().getIdentifier(midi,"raw",context.getPackageName());
+
+
+                mediaPlayer = MediaPlayer.create(context, resID);
+                mediaPlayer.start();
+
+            }
+
+        });
         container.addView(view);
         return view;
     }

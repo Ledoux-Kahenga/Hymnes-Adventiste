@@ -1,25 +1,26 @@
 /*
- *  Created by TVB Ledoux on 10/07/22 22:19
+ *  Created by TVB Ledoux on 13/07/22 09:37
  *  Copyright (c) 2022 . All rights reserved.
- *  Last modified 10/07/22 22:15
+ *  Last modified 12/07/22 21:56
  */
 
 package com.sda.projet;
 
 public class MainModel2 {
 
-    String auteur, num, titre, contenu, doh;
+    String auteur, num, titre, contenu, doh, chemin;
     int ref;
 
     MainModel2()
     {
 
     }
-    public MainModel2(String auteur, String num, String titre, String contenu, int ref, String doh) {
+    public MainModel2(String auteur, String num, String titre, String contenu, int ref, String doh,String chemin) {
         this.auteur = auteur;
         this.num = num;
         this.titre = titre;
         this.contenu = contenu;
+        this.chemin = chemin;
     }
 
     public String getAuteur() {
@@ -60,5 +61,13 @@ public class MainModel2 {
 
     public void setRef(int ref) {
         this.ref = ref;
+    }
+
+    public String getChemin() {
+        return chemin;
+    }
+
+    public void setChemin(String chemin) {
+        this.chemin = chemin;
     }
 }

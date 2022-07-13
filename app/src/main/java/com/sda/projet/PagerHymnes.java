@@ -1,7 +1,7 @@
 /*
- *  Created by TVB Ledoux on 12/07/22 21:29
+ *  Created by TVB Ledoux on 13/07/22 09:37
  *  Copyright (c) 2022 . All rights reserved.
- *  Last modified 12/07/22 21:28
+ *  Last modified 12/07/22 21:48
  */
 
 package com.sda.projet;
@@ -36,7 +36,7 @@ public class PagerHymnes extends PagerAdapter {
     List<MainModel> mainModelList;
     LayoutInflater inflater;
 //    private  boolean flags = true;
-//    private  MediaPlayer mediaPlayer;
+    private  MediaPlayer mediaPlayer;
 //    private static MediaPlayer mp2 = null;
 //    private static boolean myIsPlaying = false;
 //    private static int nowPlaying;
@@ -125,9 +125,8 @@ public class PagerHymnes extends PagerAdapter {
                         int resID = context.getResources().getIdentifier(midi,"raw",context.getPackageName());
 
 
-                        MediaPlayer mediaPlayer = MediaPlayer.create(context, resID);
+                        mediaPlayer = MediaPlayer.create(context, resID);
                         mediaPlayer.start();
-
 
                     }
 
