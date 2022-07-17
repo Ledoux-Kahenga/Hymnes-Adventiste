@@ -1,7 +1,7 @@
 /*
- *  Created by TVB Ledoux on 12/07/22 21:29
+ *  Created by TVB Ledoux on 17/07/22 15:00
  *  Copyright (c) 2022 . All rights reserved.
- *  Last modified 12/07/22 19:45
+ *  Last modified 13/07/22 17:20
  */
 
 package com.sda.projet.chant;
@@ -391,6 +391,7 @@ public class Nyimbo_z_kristo extends AppCompatActivity {
                         Intent intent = new Intent(Nyimbo_z_kristo.this, MainActivity3.class);
                         intent.putExtra("pose", go - 1);
                         startActivity(intent);
+                        Animatoo.animateSplit(Nyimbo_z_kristo.this);
 
                             dialog.dismiss();
 

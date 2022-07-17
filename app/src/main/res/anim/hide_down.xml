@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Created by TVB Ledoux on 17/07/22 15:00
+  ~  Copyright (c) 2022 . All rights reserved.
+  ~  Last modified 17/07/22 12:28
+  -->
+
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <translate
+        android:duration="200"
+        android:fromYDelta="0"
+        android:toYDelta="100%"/>
+</set>

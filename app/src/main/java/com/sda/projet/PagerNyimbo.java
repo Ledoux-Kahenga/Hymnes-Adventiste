@@ -1,7 +1,7 @@
 /*
- *  Created by TVB Ledoux on 13/07/22 09:37
+ *  Created by TVB Ledoux on 17/07/22 15:00
  *  Copyright (c) 2022 . All rights reserved.
- *  Last modified 12/07/22 21:57
+ *  Last modified 17/07/22 14:28
  */
 
 package com.sda.projet;
@@ -17,6 +17,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.text.Html;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,16 +26,19 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.res.ResourcesCompat;
+import androidx.core.widget.NestedScrollView;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.sda.projet.animation.TranslateAnimationUtil;
 import com.sda.projet.chant.Nyimbo_z_kristo;
 
 import java.util.ArrayList;
@@ -49,13 +53,18 @@ public class PagerNyimbo extends PagerAdapter {
     FloatingActionButton bottomsheet;
     Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0;
 
+    RelativeLayout relativeLayoutZoomm;
+    NestedScrollView nestedScrollView;
+
+    //    TextView zoomIn, zoomIn1, zoomIn2, zoomIn3, zoomOut, zoomOut1, zoomOut2, zoomOut3;
+    ImageView zoomIn, zoomOut;
+
+
     MediaPlayer mediaPlayer;
     ImageView btn_Sup, btn_Go;
     TextView affichage;
     private Dialog dialog;
     private Dialog dialogs;
-
-
 
 
     public PagerNyimbo(Context context, List<MainModel2> mainModelList2) {
@@ -77,7 +86,7 @@ public class PagerNyimbo extends PagerAdapter {
 
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-             container.removeView((ViewGroup)object);
+        container.removeView((ViewGroup) object);
     }
 
     @NonNull
@@ -86,8 +95,7 @@ public class PagerNyimbo extends PagerAdapter {
         // inflate View
 
 //        Audio audioC = new Audio(position);
-        View view = inflater.inflate(R.layout.chant1,container,false);
-
+        View view = inflater.inflate(R.layout.chant1, container, false);
 
 
         //view
@@ -111,12 +119,53 @@ public class PagerNyimbo extends PagerAdapter {
         midi = mainModelList2.get(position).chemin;
         reference = mainModelList2.get(position).ref;
 
-        if (reference == 0){
+        if (reference == 0) {
             refTexte.setText(" ");
-        }else {
+        } else {
             refTexte.setText("H&L:" + reference);
         }
 
+        nestedScrollView = view.findViewById(R.id.scrollv);
+        relativeLayoutZoomm = view.findViewById(R.id.zoom);
+
+        nestedScrollView.setOnTouchListener(new TranslateAnimationUtil(context, relativeLayoutZoomm));
+
+
+        zoomIn = view.findViewById(R.id.zoomIn);
+        zoomOut = view.findViewById(R.id.zoomOut);
+
+        float max = 0;
+        float min = 40;
+
+        zoomIn.setOnClickListener(new View.OnClickListener() {
+
+
+            @Override
+            public void onClick(View v) {
+
+                float x = contenu.getTextSize();
+
+                for (int i = 1; i <= 5; i++) {
+
+                    contenu.setTextSize(TypedValue.COMPLEX_UNIT_PX, x - 2.5f);
+
+                }
+            }
+        });
+
+        zoomOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                float x = contenu.getTextSize();
+
+                for (int i = 1; i <= 5; i++) {
+
+                    contenu.setTextSize(TypedValue.COMPLEX_UNIT_PX, x + 2.5f);
+
+                }
+            }
+
+        });
 
 
         back.setOnClickListener(new View.OnClickListener() {
@@ -125,6 +174,21 @@ public class PagerNyimbo extends PagerAdapter {
                 Intent intent = new Intent(context, Nyimbo_z_kristo.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 context.startActivity(intent);
+                try {
+
+                    if (mediaPlayer.isPlaying()) {
+                        mediaPlayer.release();
+                        mediaPlayer = null;
+//                    audio.setImageResource(R.drawable.ic_play_btn);
+                    } else if (!mediaPlayer.isPlaying()) {
+                        mediaPlayer = null;
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+
                 Animatoo.animateSlideRight(context);
             }
         });
@@ -135,7 +199,7 @@ public class PagerNyimbo extends PagerAdapter {
             @Override
             public void onClick(View v) {
 
-                if(finalReference < 1){
+                if (finalReference < 1) {
 
                     dialog = new Dialog(context);
                     dialog.setContentView(R.layout.page_introuvable);
@@ -143,46 +207,46 @@ public class PagerNyimbo extends PagerAdapter {
 
                     dialog.show();
 
-                   ImageView Whatsapp = dialog.findViewById(R.id.Whatsapp);
-                   Whatsapp.setOnClickListener(new View.OnClickListener() {
-                       @Override
-                       public void onClick(View v) {
+                    ImageView Whatsapp = dialog.findViewById(R.id.Whatsapp);
+                    Whatsapp.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
 
-                           String var_NB = "N.B: Remplacer les (???) par le numero correspondant\n\n\n ";
+                            String var_NB = "N.B: Remplacer les (???) par le numero correspondant\n\n\n ";
 
-                           try {
-                               String headerReceiver = "tete";// Replace with your message.
-                               String bodyMessageFormal = "corp";// Replace with your message.
-                               String whatsappContain = headerReceiver + bodyMessageFormal;
-                               String trimToNumner = "+243 972525920"; //10 digit number
-                               Intent intent = new Intent ( Intent.ACTION_VIEW );
-                               intent.setData ( Uri.parse ( "https://wa.me/" + trimToNumner + "/?text="+ var_NB + Html.fromHtml(mainModelList2.get(position).num + " - " + mainModelList2.get(position).titre + " = (???) ") ) );
-                               context.startActivity(Intent.createChooser(intent, "Soumettez la reference"));
-                               dialog.dismiss();
-                           } catch (Exception e) {
-                               e.printStackTrace ();
-                           }
+                            try {
+                                String headerReceiver = "tete";// Replace with your message.
+                                String bodyMessageFormal = "corp";// Replace with your message.
+                                String whatsappContain = headerReceiver + bodyMessageFormal;
+                                String trimToNumner = "+243 972525920"; //10 digit number
+                                Intent intent = new Intent(Intent.ACTION_VIEW);
+                                intent.setData(Uri.parse("https://wa.me/" + trimToNumner + "/?text=" + var_NB + Html.fromHtml(mainModelList2.get(position).num + " - " + mainModelList2.get(position).titre + " = (???) ")));
+                                context.startActivity(Intent.createChooser(intent, "Soumettez la reference"));
+                                dialog.dismiss();
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
 
-                       }
-                   });
+                        }
+                    });
 
                     ImageView Gmail = dialog.findViewById(R.id.Gmail);
                     Gmail.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
 
-                            try{
+                            try {
 
                                 Intent intent = new Intent(Intent.ACTION_SENDTO);
                                 intent.setData(Uri.parse("mailto:"));
                                 String[] to = {"ledouxkahenga25@gmail.com"};
                                 intent.putExtra(Intent.EXTRA_EMAIL, to);
                                 intent.putExtra(Intent.EXTRA_SUBJECT, "LES REFERENCES DES NUMEROS NYIMBO ZA KRISTO - HYMNES ET LOUANGES ");
-                                intent.putExtra(Intent.EXTRA_TEXT,  Html.fromHtml(mainModelList2.get(position).num + " - " + mainModelList2.get(position).titre + " = ?????? ") );
+                                intent.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(mainModelList2.get(position).num + " - " + mainModelList2.get(position).titre + " = ?????? "));
                                 dialog.dismiss();
                                 context.startActivity(Intent.createChooser(intent, "Soumettez la reference"));
 
-                            }catch (Exception e){
+                            } catch (Exception e) {
                                 e.printStackTrace();
                             }
                         }
@@ -193,32 +257,45 @@ public class PagerNyimbo extends PagerAdapter {
                         @Override
                         public void onClick(View v) {
 
-                            try{
+                            try {
                                 String var_NB = "N.B: Remplacer les (???) par le numero correspondant\n\n\n ";
-                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.fromParts("sms","0972525920",null));
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.fromParts("sms", "0972525920", null));
 
                                 intent.putExtra(Intent.EXTRA_TEXT, var_NB + mainModelList2.get(position).num + " - " + mainModelList2.get(position).titre + " = (???) ");
                                 dialog.dismiss();
                                 context.startActivity(Intent.createChooser(intent, "Soumettez la reference "));
 
-                            }catch (Exception e){
+                            } catch (Exception e) {
                                 e.printStackTrace();
                             }
                         }
                     });
 
-                }else {
+                } else {
                     Intent intent = new Intent(context, MainActivity2.class);
                     intent.putExtra("pos", finalReference - 1);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
                     context.startActivity(intent);
+                    try {
+
+                        if (mediaPlayer.isPlaying()) {
+                            mediaPlayer.release();
+                            mediaPlayer = null;
+//                    audio.setImageResource(R.drawable.ic_play_btn);
+                        } else if (!mediaPlayer.isPlaying()) {
+                            mediaPlayer = null;
+                        }
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+//                    audio.setImageResource(R.drawable.ic_play_btn);
                     Animatoo.animateSpin(context);
                 }
 
             }
         });
-
 
 
         //    bottom sheet
@@ -255,9 +332,9 @@ public class PagerNyimbo extends PagerAdapter {
                     @Override
                     public void onClick(View v) {
 
-                        if(affichage.length() <= 2){
+                        if (affichage.length() <= 2) {
                             affichage.setText(affichage.getText() + "0");
-                        }else {
+                        } else {
                             affichage.setText(affichage.getText());
                         }
 
@@ -268,9 +345,9 @@ public class PagerNyimbo extends PagerAdapter {
                     @Override
                     public void onClick(View v) {
 
-                        if(affichage.length() <= 2){
+                        if (affichage.length() <= 2) {
                             affichage.setText(affichage.getText() + "1");
-                        }else {
+                        } else {
                             affichage.setText(affichage.getText());
                         }
 
@@ -281,9 +358,9 @@ public class PagerNyimbo extends PagerAdapter {
                     @Override
                     public void onClick(View v) {
 
-                        if(affichage.length() <= 2){
+                        if (affichage.length() <= 2) {
                             affichage.setText(affichage.getText() + "2");
-                        }else {
+                        } else {
                             affichage.setText(affichage.getText());
                         }
 
@@ -294,9 +371,9 @@ public class PagerNyimbo extends PagerAdapter {
                     @Override
                     public void onClick(View v) {
 
-                        if(affichage.length() <= 2){
+                        if (affichage.length() <= 2) {
                             affichage.setText(affichage.getText() + "3");
-                        }else {
+                        } else {
                             affichage.setText(affichage.getText());
                         }
 
@@ -307,9 +384,9 @@ public class PagerNyimbo extends PagerAdapter {
                     @Override
                     public void onClick(View v) {
 
-                        if(affichage.length() <= 2){
+                        if (affichage.length() <= 2) {
                             affichage.setText(affichage.getText() + "4");
-                        }else {
+                        } else {
                             affichage.setText(affichage.getText());
                         }
 
@@ -320,9 +397,9 @@ public class PagerNyimbo extends PagerAdapter {
                     @Override
                     public void onClick(View v) {
 
-                        if(affichage.length() <= 2){
+                        if (affichage.length() <= 2) {
                             affichage.setText(affichage.getText() + "5");
-                        }else {
+                        } else {
                             affichage.setText(affichage.getText());
                         }
 
@@ -333,9 +410,9 @@ public class PagerNyimbo extends PagerAdapter {
                     @Override
                     public void onClick(View v) {
 
-                        if(affichage.length() <= 2){
+                        if (affichage.length() <= 2) {
                             affichage.setText(affichage.getText() + "6");
-                        }else {
+                        } else {
                             affichage.setText(affichage.getText());
                         }
 
@@ -346,9 +423,9 @@ public class PagerNyimbo extends PagerAdapter {
                     @Override
                     public void onClick(View v) {
 
-                        if(affichage.length() <= 2){
+                        if (affichage.length() <= 2) {
                             affichage.setText(affichage.getText() + "7");
-                        }else {
+                        } else {
                             affichage.setText(affichage.getText());
                         }
 
@@ -359,9 +436,9 @@ public class PagerNyimbo extends PagerAdapter {
                     @Override
                     public void onClick(View v) {
 
-                        if(affichage.length() <= 2){
+                        if (affichage.length() <= 2) {
                             affichage.setText(affichage.getText() + "8");
-                        }else {
+                        } else {
                             affichage.setText(affichage.getText());
                         }
 
@@ -372,9 +449,9 @@ public class PagerNyimbo extends PagerAdapter {
                     @Override
                     public void onClick(View v) {
 
-                        if(affichage.length() <= 2){
+                        if (affichage.length() <= 2) {
                             affichage.setText(affichage.getText() + "9");
-                        }else {
+                        } else {
                             affichage.setText(affichage.getText());
                         }
 
@@ -391,7 +468,7 @@ public class PagerNyimbo extends PagerAdapter {
                             val = affichage.getText().toString();
                             val = val.substring(0, val.length() - 1);
 
-                        }catch (StringIndexOutOfBoundsException e){
+                        } catch (StringIndexOutOfBoundsException e) {
                             e.printStackTrace();
                         }
 
@@ -418,8 +495,8 @@ public class PagerNyimbo extends PagerAdapter {
                                 toast.setView(layout);
                                 toast.setDuration(Toast.LENGTH_SHORT);
                                 toast.show();
-                                toast.setGravity(Gravity.CENTER,0 ,0);
-                            }else {
+                                toast.setGravity(Gravity.CENTER, 0, 0);
+                            } else {
                                 Intent intent = new Intent(context, MainActivity3.class);
                                 intent.putExtra("pose", go - 1);
                                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -440,175 +517,52 @@ public class PagerNyimbo extends PagerAdapter {
             }
         });
 
+
         audio.setOnClickListener(new View.OnClickListener() {
+
 
             @Override
             public void onClick(View v) {
 
-                int resID = context.getResources().getIdentifier(midi,"raw",context.getPackageName());
+                int resID = context.getResources().getIdentifier(midi, "raw", context.getPackageName());
 
 
-                mediaPlayer = MediaPlayer.create(context, resID);
-                mediaPlayer.start();
+                if (mediaPlayer == null) {
+                    mediaPlayer = MediaPlayer.create(context, resID);
+                    audio.setImageResource(R.drawable.ic_stop);
+                    mediaPlayer.start();
+                } else if (mediaPlayer != null) {
+                    mediaPlayer.release();
+                    mediaPlayer = null;
+                    audio.setImageResource(R.drawable.ic_play_btn);
+                }
 
             }
 
         });
+
+        ImageView Share = view.findViewById(R.id.share);
+        Share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                try {
+                    Intent intent = new Intent(Intent.ACTION_SEND);
+                    intent.setType("text/plain");
+
+                    intent.putExtra(Intent.EXTRA_HTML_TEXT,  mainModelList2.get(position).num + " - " + mainModelList2.get(position).titre + "</br>" +mainModelList2.get(position).contenu);
+                    context.startActivity(Intent.createChooser(intent, "Partager"));
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+
+
+            }
+        });
+
         container.addView(view);
         return view;
+
     }
-
-//    private void showDialog(){
-//
-//
-//
-////        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-//
-//
-//
-//        btn0 = dialog.findViewById(R.id.btn0);
-//        btn1 = dialog.findViewById(R.id.btn1);
-//        btn2 = dialog.findViewById(R.id.btn2);
-//        btn3 = dialog.findViewById(R.id.btn3);
-//        btn4 = dialog.findViewById(R.id.btn4);
-//        btn5 = dialog.findViewById(R.id.btn5);
-//        btn6 = dialog.findViewById(R.id.btn6);
-//        btn7 = dialog.findViewById(R.id.btn7);
-//        btn8 = dialog.findViewById(R.id.btn8);
-//        btn9 = dialog.findViewById(R.id.btn9);
-//        btn_Sup = dialog.findViewById(R.id.btn_sup);
-//        btn_Go = dialog.findViewById(R.id.btn_ok);
-//        affichage = dialog.findViewById(R.id.txvDisplay);
-//
-//
-//        btn0.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                affichage.setText(affichage.getText() + "0");
-//            }
-//        });
-//
-//        btn1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                affichage.setText(affichage.getText() + "1");
-//            }
-//        });
-//
-//        btn2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                affichage.setText(affichage.getText() + "2");
-//            }
-//        });
-//
-//        btn3.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                affichage.setText(affichage.getText() + "3");
-//            }
-//        });
-//
-//        btn4.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                affichage.setText(affichage.getText() + "4");
-//            }
-//        });
-//
-//        btn5.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                affichage.setText(affichage.getText() + "5");
-//            }
-//        });
-//
-//        btn6.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                affichage.setText(affichage.getText() + "6");
-//            }
-//        });
-//
-//        btn7.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                affichage.setText(affichage.getText() + "7");
-//            }
-//        });
-//
-//        btn8.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                affichage.setText(affichage.getText() + "8");
-//            }
-//        });
-//
-//        btn9.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                affichage.setText(affichage.getText() + "9");
-//            }
-//        });
-//
-//        btn_Sup.setOnClickListener(new View.OnClickListener() {
-//            String val;
-//
-//            @Override
-//            public void onClick(View v) {
-//
-//                try {
-//                    val = affichage.getText().toString();
-//                    val = val.substring(0, val.length() - 1);
-//
-//                }catch (StringIndexOutOfBoundsException e){
-//                    e.printStackTrace();
-//                }
-//
-//
-//                affichage.setText(val);
-//
-//            }
-//        });
-//
-//        btn_Go.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-////                String val = "bonjour";
-//
-//                int go = 0;
-//
-//                try {
-//                    go = Integer.parseInt(affichage.getText().toString());
-//
-//                    if (go == 0) {
-//                        Toast.makeText(context, "Le nombre que vous avez saisi n'existe pas ", Toast.LENGTH_SHORT).show();
-//                    } else if (go > 220) {
-//
-//                        Toast.makeText(context, "Le nombre que vous avez saisi n'existe pas ", Toast.LENGTH_SHORT).show();
-//
-//                    } else {
-//                        Intent intent = new Intent(context, MainActivity3.class);
-//                        intent.putExtra("pose", go - 1);
-//                        context.startActivity(intent);
-//
-//                        dialog.dismiss();
-//
-//                    }
-//
-//                } catch (NumberFormatException e) {
-//                    e.printStackTrace();
-//                }
-//
-//            }
-//        });
-//
-//    }
-
-//    private void startSupportChat() {
-//
-//
-//
-//    }
 
 }

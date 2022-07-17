@@ -1,0 +1,18 @@
+<!--
+  ~  Created by TVB Ledoux on 17/07/22 15:00
+  ~  Copyright (c) 2022 . All rights reserved.
+  ~  Last modified 13/07/22 19:01
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="480dp"
+    android:height="480dp"
+    android:viewportWidth="480"
+    android:viewportHeight="480">
+  <path
+      android:fillColor="#FF000000"
+      android:pathData="m240,0c-132.547,0 -240,107.453 -240,240s107.453,240 240,240 240,-107.453 240,-240c-0.148,-132.484 -107.516,-239.852 -240,-240zM240,448c-114.875,0 -208,-93.125 -208,-208s93.125,-208 208,-208 208,93.125 208,208c-0.133,114.82 -93.18,207.867 -208,208zM240,448"/>
+  <path
+      android:fillColor="#FF000000"
+      android:pathData="m336,128h-192c-8.836,0 -16,7.164 -16,16v192c0,8.836 7.164,16 16,16h192c8.836,0 16,-7.164 16,-16v-27.426c0,-8.836 -7.164,-16 -16,-16s-16,7.164 -16,16v11.426h-160v-160h160v94.289c0,8.836 7.164,16 16,16s16,-7.164 16,-16v-110.289c0,-8.836 -7.164,-16 -16,-16zM336,128"/>
+</vector>

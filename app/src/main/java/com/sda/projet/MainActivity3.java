@@ -1,12 +1,15 @@
  /*
- *  Created by TVB Ledoux on 10/07/22 22:19
+ *  Created by TVB Ledoux on 17/07/22 15:00
  *  Copyright (c) 2022 . All rights reserved.
- *  Last modified 10/07/22 22:15
+ *  Last modified 17/07/22 15:00
  */
 
 package com.sda.projet;
 
+ import android.annotation.SuppressLint;
+ import android.media.MediaPlayer;
  import android.os.Bundle;
+ import android.text.Layout;
  import android.view.View;
  import android.widget.ImageView;
  import android.widget.TextView;
@@ -35,21 +38,21 @@ package com.sda.projet;
      ViewPager viewPager;
      PagerNyimbo pagerNyimbo;
 
+     MediaPlayer mediaPlayer;
+
 
 
      DatabaseReference movies;
 
      IFirebaseLoadDone1 iFirebaseLoadDone;
-     TextView textView;
+
      private SharedPref sharedPref;
      private int position;
-//     private int posee;
-
-//     int col ;
-
 
      @Override
      protected void onCreate(Bundle savedInstanceState) {
+
+         mediaPlayer = null;
 
          sharedPref = new SharedPref(this);
          if (sharedPref.loardDarkModeState()){
@@ -74,12 +77,12 @@ package com.sda.projet;
 
          loadMovie();
 
-         //Audio
-
 
          viewPager = (ViewPager)findViewById(R.id.view_pager3);
          viewPager.setPageTransformer(true,new AccordionTransformer());
          getIntentInfo();
+
+//         mediaPlayer = MediaPlayer.create(getApplicationContext(),R.raw.a001);
 
      }
 
@@ -127,6 +130,19 @@ package com.sda.projet;
      @Override
      public void onBackPressed() {
          super.onBackPressed();
+         try {
+
+             if (mediaPlayer.isPlaying()) {
+                 mediaPlayer.release();
+                 mediaPlayer = null;
+//                    audio.setImageResource(R.drawable.ic_play_btn);
+             } else if (!mediaPlayer.isPlaying()) {
+                 mediaPlayer = null;
+             }
+
+         } catch (Exception e) {
+             e.printStackTrace();
+         }
          Animatoo.animateSlideRight(this);
      }
 
