@@ -1,7 +1,7 @@
  /*
- *  Created by TVB Ledoux on 19/07/22 11:16
+ *  Created by TVB Ledoux on 19/07/22 15:58
  *  Copyright (c) 2022 . All rights reserved.
- *  Last modified 17/07/22 15:06
+ *  Last modified 19/07/22 15:12
  */
 
 package com.sda.projet;
@@ -27,6 +27,7 @@ package com.sda.projet;
  import com.google.firebase.database.FirebaseDatabase;
  import com.google.firebase.database.ValueEventListener;
  import com.sda.projet.chant.Hymnes_et_lg;
+ import com.sda.projet.chant.audio.AudioPlay;
  import com.sda.projet.chant.model.adapteur.viewpager.transform.AccordionTransformer;
  import com.sda.projet.parametres.SharedPref;
 
@@ -38,10 +39,6 @@ package com.sda.projet;
      ViewPager viewPager;
      PagerNyimbo pagerNyimbo;
 
-     MediaPlayer mediaPlayer;
-
-
-
      DatabaseReference movies;
 
      IFirebaseLoadDone1 iFirebaseLoadDone;
@@ -52,7 +49,6 @@ package com.sda.projet;
      @Override
      protected void onCreate(Bundle savedInstanceState) {
 
-         mediaPlayer = null;
 
          sharedPref = new SharedPref(this);
          if (sharedPref.loardDarkModeState()){
@@ -111,7 +107,7 @@ package com.sda.projet;
          pagerNyimbo = new PagerNyimbo(this,mainModelList);
          viewPager.setAdapter(pagerNyimbo);
          viewPager.setCurrentItem(position);
-//         viewPager.setCurrentItem(posee);
+
      }
 
      @Override
@@ -123,26 +119,11 @@ package com.sda.projet;
      private void getIntentInfo(){
          position = getIntent().getIntExtra("pose",0);
      }
-//     private void getIntentPos(){
-//         position = getIntent().getIntExtra("posee",0);
-//     }
+
 
      @Override
      public void onBackPressed() {
          super.onBackPressed();
-//         try {
-//
-//             if (mediaPlayer.isPlaying()) {
-//                 mediaPlayer.release();
-//                 mediaPlayer = null;
-////                    audio.setImageResource(R.drawable.ic_play_btn);
-//             } else  {
-//                 mediaPlayer = null;
-//             }
-//
-//         } catch (Exception e) {
-//             e.printStackTrace();
-//         }
          Animatoo.animateSlideRight(this);
      }
 

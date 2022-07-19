@@ -1,7 +1,7 @@
 /*
- *  Created by TVB Ledoux on 13/07/22 09:37
+ *  Created by TVB Ledoux on 19/07/22 15:58
  *  Copyright (c) 2022 . All rights reserved.
- *  Last modified 12/07/22 21:48
+ *  Last modified 19/07/22 13:59
  */
 
 package com.sda.projet;
@@ -25,6 +25,7 @@ import androidx.viewpager.widget.PagerAdapter;
 
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
+import com.sda.projet.chant.audio.AudioPlay;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -74,7 +75,7 @@ public class PagerHymnes extends PagerAdapter {
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         // inflate View
 
-//        Audio audioC = new Audio(position);
+//        AudioPlay audioC = new AudioPlay(position);
         View view = inflater.inflate(R.layout.chant,container,false);
 
 
@@ -125,8 +126,16 @@ public class PagerHymnes extends PagerAdapter {
                         int resID = context.getResources().getIdentifier(midi,"raw",context.getPackageName());
 
 
-                        mediaPlayer = MediaPlayer.create(context, resID);
-                        mediaPlayer.start();
+                        if (AudioPlay.mediaPlayer == null) {
+
+                            AudioPlay.playAudio(context,resID);
+                            audio.setImageResource(R.drawable.ic_stop);
+
+                        } else if (AudioPlay.mediaPlayer != null) {
+
+                            AudioPlay.stopAudio();
+                            audio.setImageResource(R.drawable.ic_play_btn);
+                        }
 
                     }
 

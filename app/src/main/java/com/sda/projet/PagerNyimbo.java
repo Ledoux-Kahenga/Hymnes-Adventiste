@@ -1,7 +1,7 @@
 /*
- *  Created by TVB Ledoux on 17/07/22 15:00
+ *  Created by TVB Ledoux on 19/07/22 15:58
  *  Copyright (c) 2022 . All rights reserved.
- *  Last modified 17/07/22 14:28
+ *  Last modified 19/07/22 15:38
  */
 
 package com.sda.projet;
@@ -40,6 +40,7 @@ import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.sda.projet.animation.TranslateAnimationUtil;
 import com.sda.projet.chant.Nyimbo_z_kristo;
+import com.sda.projet.chant.audio.AudioPlay;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -94,7 +95,7 @@ public class PagerNyimbo extends PagerAdapter {
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         // inflate View
 
-//        Audio audioC = new Audio(position);
+//        AudioPlay audioC = new AudioPlay(position);
         View view = inflater.inflate(R.layout.chant1, container, false);
 
 
@@ -145,11 +146,14 @@ public class PagerNyimbo extends PagerAdapter {
 
                 float x = contenu.getTextSize();
 
-                for (int i = 1; i <= 5; i++) {
-
-                    contenu.setTextSize(TypedValue.COMPLEX_UNIT_PX, x - 2.5f);
-
+                if (x <= 40){
+                    Toast.makeText(context, R.string.moinsTaille, Toast.LENGTH_SHORT).show();
+                }else {
+                    contenu.setTextSize(TypedValue.COMPLEX_UNIT_PX, x - 5f);
                 }
+
+
+
             }
         });
 
@@ -158,11 +162,12 @@ public class PagerNyimbo extends PagerAdapter {
             public void onClick(View v) {
                 float x = contenu.getTextSize();
 
-                for (int i = 1; i <= 5; i++) {
-
-                    contenu.setTextSize(TypedValue.COMPLEX_UNIT_PX, x + 2.5f);
-
+                if (x >= 110){
+                    Toast.makeText(context, R.string.plusTaille, Toast.LENGTH_SHORT).show();
+                }else {
+                    contenu.setTextSize(TypedValue.COMPLEX_UNIT_PX, x + 5f);
                 }
+
             }
 
         });
@@ -527,15 +532,17 @@ public class PagerNyimbo extends PagerAdapter {
                 int resID = context.getResources().getIdentifier(midi, "raw", context.getPackageName());
 
 
-                if (mediaPlayer == null) {
-                    mediaPlayer = MediaPlayer.create(context, resID);
+                if (AudioPlay.mediaPlayer == null) {
+
+                    AudioPlay.playAudio(context, resID);
                     audio.setImageResource(R.drawable.ic_stop);
-                    mediaPlayer.start();
-                } else if (mediaPlayer != null) {
-                    mediaPlayer.release();
-                    mediaPlayer = null;
+
+                } else if (AudioPlay.mediaPlayer != null) {
+
+                    AudioPlay.stopAudio();
                     audio.setImageResource(R.drawable.ic_play_btn);
                 }
+
 
             }
 
@@ -546,15 +553,15 @@ public class PagerNyimbo extends PagerAdapter {
             @Override
             public void onClick(View v) {
 
-                try {
+//                try {
                     Intent intent = new Intent(Intent.ACTION_SEND);
-                    intent.setType("text/plain");
+                    intent.setType("text/html");
 
-                    intent.putExtra(Intent.EXTRA_HTML_TEXT,  mainModelList2.get(position).num + " - " + mainModelList2.get(position).titre + "</br>" +mainModelList2.get(position).contenu);
+                    intent.putExtra(Intent.EXTRA_TEXT, mainModelList2.get(position).num + " - " + mainModelList2.get(position).titre + "</br>" + mainModelList2.get(position).contenu);
                     context.startActivity(Intent.createChooser(intent, "Partager"));
-                }catch (Exception e){
-                    e.printStackTrace();
-                }
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
 
 
             }

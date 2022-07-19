@@ -1,9 +1,9 @@
 
 
 /*
- *  Created by TVB Ledoux on 10/07/22 22:19
+ *  Created by TVB Ledoux on 19/07/22 15:58
  *  Copyright (c) 2022 . All rights reserved.
- *  Last modified 10/07/22 22:15
+ *  Last modified 19/07/22 13:31
  */
 
 package com.sda.projet;
@@ -71,7 +71,7 @@ public class MainActivity2 extends AppCompatActivity implements IFirebaseLoadDon
 
         loadMovie();
 
-        //Audio
+        //AudioPlay
 
 
         viewPager = (ViewPager)findViewById(R.id.view_pager);
