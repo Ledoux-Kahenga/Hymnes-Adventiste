@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~  Created by TVB Ledoux on 12/07/22 21:29
+  ~  Created by TVB Ledoux on 19/07/22 11:16
   ~  Copyright (c) 2022 . All rights reserved.
-  ~  Last modified 12/07/22 19:45
+  ~  Last modified 19/07/22 11:15
   -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -10,7 +10,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/clavier_numero"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/_8sdp"
+    android:layout_marginRight="@dimen/_8sdp"
     android:background="@drawable/bg_clavier_chant"
     android:orientation="vertical">
 
@@ -18,7 +20,7 @@
         android:layout_width="@dimen/_50sdp"
         android:layout_height="@dimen/_5sdp"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_10sdp"
         android:background="@drawable/bg_display" />
 
 
@@ -26,9 +28,9 @@
         android:id="@+id/recherche_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_18sdp"
-        android:layout_marginTop="@dimen/_15sdp"
-        android:layout_marginEnd="@dimen/_18sdp"
+        android:layout_marginStart="@dimen/_14sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_14sdp"
         android:background="@drawable/bg_display">
 
         <TextView
@@ -41,14 +43,14 @@
             android:paddingBottom="@dimen/_4sdp"
             android:textAlignment="center"
             android:textColor="?attr/color_icones"
-            android:textSize="@dimen/_24ssp" />
+            android:textSize="@dimen/_22ssp" />
 
     </RelativeLayout>
 
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/_20sdp">
+        android:layout_marginTop="@dimen/_10sdp">
 
         <TableRow
             android:layout_width="match_parent"
@@ -60,7 +62,10 @@
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_14sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
                 android:background="@drawable/btn_bg"
                 android:fontFamily="@font/merienda_regular"
                 android:text="1"
@@ -73,7 +78,10 @@
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_14sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
                 android:background="@drawable/btn_bg"
                 android:fontFamily="@font/merienda_regular"
                 android:text="2"
@@ -86,7 +94,10 @@
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_14sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
                 android:background="@drawable/btn_bg"
                 android:fontFamily="@font/merienda_regular"
                 android:text="3"
@@ -105,7 +116,10 @@
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_14sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
                 android:background="@drawable/btn_bg"
                 android:fontFamily="@font/merienda_regular"
                 android:text="4"
@@ -118,7 +132,10 @@
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_14sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
                 android:background="@drawable/btn_bg"
                 android:fontFamily="@font/merienda_regular"
                 android:text="5"
@@ -131,7 +148,10 @@
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_14sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
                 android:background="@drawable/btn_bg"
                 android:fontFamily="@font/merienda_regular"
                 android:text="6"
@@ -150,7 +170,10 @@
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_14sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
                 android:background="@drawable/btn_bg"
                 android:fontFamily="@font/merienda_regular"
                 android:text="7"
@@ -163,7 +186,10 @@
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_14sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
                 android:background="@drawable/btn_bg"
                 android:fontFamily="@font/merienda_regular"
                 android:text="8"
@@ -176,7 +202,10 @@
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_14sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
                 android:background="@drawable/btn_bg"
                 android:fontFamily="@font/merienda_regular"
                 android:text="9"
@@ -188,23 +217,31 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/_6sdp"
             android:gravity="center">
 
             <ImageView
                 android:id="@+id/btn_sup"
                 android:layout_width="@dimen/_36sdp"
                 android:layout_height="@dimen/_36sdp"
-                android:layout_margin="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_14sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
                 android:background="@drawable/btn_bg"
                 android:padding="@dimen/_9sdp"
-                android:src="@drawable/sup" />
+                android:src="@drawable/ic_sup"
+                app:tint="?attr/color_icones" />
 
             <Button
                 android:id="@+id/btn0"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_14sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
                 android:background="@drawable/btn_bg"
                 android:fontFamily="@font/merienda_regular"
                 android:text="0"
@@ -216,10 +253,14 @@
                 android:id="@+id/btn_ok"
                 android:layout_width="@dimen/_36sdp"
                 android:layout_height="@dimen/_36sdp"
-                android:layout_margin="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_14sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
                 android:background="@drawable/btn_bg"
                 android:padding="@dimen/_9sdp"
-                android:src="@drawable/ok" />
+                android:src="@drawable/ic_go"
+                app:tint="?attr/color_icones"/>
         </TableRow>
     </TableLayout>
 

@@ -1,7 +1,7 @@
  /*
- *  Created by TVB Ledoux on 17/07/22 15:00
+ *  Created by TVB Ledoux on 19/07/22 11:16
  *  Copyright (c) 2022 . All rights reserved.
- *  Last modified 17/07/22 15:00
+ *  Last modified 17/07/22 15:06
  */
 
 package com.sda.projet;
@@ -130,19 +130,19 @@ package com.sda.projet;
      @Override
      public void onBackPressed() {
          super.onBackPressed();
-         try {
-
-             if (mediaPlayer.isPlaying()) {
-                 mediaPlayer.release();
-                 mediaPlayer = null;
-//                    audio.setImageResource(R.drawable.ic_play_btn);
-             } else if (!mediaPlayer.isPlaying()) {
-                 mediaPlayer = null;
-             }
-
-         } catch (Exception e) {
-             e.printStackTrace();
-         }
+//         try {
+//
+//             if (mediaPlayer.isPlaying()) {
+//                 mediaPlayer.release();
+//                 mediaPlayer = null;
+////                    audio.setImageResource(R.drawable.ic_play_btn);
+//             } else  {
+//                 mediaPlayer = null;
+//             }
+//
+//         } catch (Exception e) {
+//             e.printStackTrace();
+//         }
          Animatoo.animateSlideRight(this);
      }
 

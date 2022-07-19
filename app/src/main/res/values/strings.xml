@@ -1,7 +1,7 @@
 <!--
-  ~  Created by TVB Ledoux on 10/07/22 22:19
+  ~  Created by TVB Ledoux on 19/07/22 11:16
   ~  Copyright (c) 2022 . All rights reserved.
-  ~  Last modified 10/07/22 22:15
+  ~  Last modified 19/07/22 10:10
   -->
 
 <resources>
@@ -39,5 +39,6 @@
     <string name="activer">Mode Sombre activé</string>
     <string name="desactiver">Mode Sombre desactivé</string>
     <string name="numero">Il faut entrer un numéro entre 1 et 220</string>
+    <string name="sabbat">Bon Sabbat!</string>
 
 </resources>

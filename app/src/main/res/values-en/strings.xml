@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~  Created by TVB Ledoux on 10/07/22 22:19
+  ~  Created by TVB Ledoux on 19/07/22 11:16
   ~  Copyright (c) 2022 . All rights reserved.
-  ~  Last modified 10/07/22 22:15
+  ~  Last modified 19/07/22 10:10
   -->
 
 <resources>
     <string name="app_name">Hymnes Adventiste</string>
 
-    <string name="bienvenu">Welecome !</string>
+    <string name="bienvenu">Welcome !</string>
     <string name="rechercher_des_chants">Search for songs</string>
     <string name="menu">Menu</string>
     <string name="hymnes_et_louages">Hymnes et louages</string>
@@ -38,5 +38,6 @@
     <string name="activer">Dark mode On</string>
     <string name="desactiver">Dark mode Off</string>
     <string name="numero">Il faut entrer un numéro entre 1 et 220</string>
+    <string name="sabbat">Happy Sabbath!</string>
 
 </resources>

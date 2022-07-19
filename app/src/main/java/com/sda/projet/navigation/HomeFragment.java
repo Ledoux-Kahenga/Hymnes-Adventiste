@@ -1,7 +1,7 @@
 /*
- *  Created by TVB Ledoux on 10/07/22 22:19
+ *  Created by TVB Ledoux on 19/07/22 11:16
  *  Copyright (c) 2022 . All rights reserved.
- *  Last modified 10/07/22 22:15
+ *  Last modified 19/07/22 11:15
  */
 
 package com.sda.projet.navigation;
@@ -26,44 +26,46 @@ import com.sda.projet.R;
 import com.sda.projet.chant.Hymnes_et_lg;
 import com.sda.projet.chant.Nyimbo_z_kristo;
 
-import org.joda.time.DateTimeConstants;
 
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import java.util.Date;
 
 
 public class HomeFragment extends Fragment {
     Context context;
     private HomeViewModel homeViewModel;
 
+    private TextView acceuil;
+
+    public static int getDayNumberOld(Date date) {
+        Calendar instance = Calendar.getInstance();
+        instance.setTime(date);
+        return instance.get(7);
+    }
+
+    public static int getHours(Date date) {
+        Calendar instance = Calendar.getInstance();
+        instance.setTime(date);
+        return instance.get(11);
+    }
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         this.homeViewModel = (HomeViewModel) new ViewModelProvider(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
-//        DateTimeFormatter dateTimeFormatter = null;
-//
-//
-        TextView textView = root.findViewById(R.id.titreacceuil1);
-//
-//        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-//            LocalDate date = LocalDate.now();
-//            dateTimeFormatter.ofPattern("EEE, MMM d, ''yy");
-//            String dater = dateTimeFormatter.format(date);
-////                    Toast.makeText(HomeFragment.this.getContext(), "nous sommes " +dater, Toast.LENGTH_SHORT).show();
-
-//        }
 
 
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-//            LocalDate today = LocalDate.now().plusDays(1);
-//
-//            LocalDate sabbat = LocalDate.now().with(DayOfWeek.SATURDAY).plusDays(1);
-//            LocalDate vendredi = LocalDate.now().with(DayOfWeek.FRIDAY);
-//            LocalDate resut = LocalDate.now().;
-//
-//            textView.setText(""+vendredi);
-//        }
+
+        acceuil = (TextView) root.findViewById(R.id.titreacceuil);
+
+        if (isSabbath()) {
+            acceuil.setText(getResources().getString(R.string.sabbat));
+
+        } else {
+            acceuil.setText(getResources().getString(R.string.bienvenu));
+
+        }
+
 
 
         ((ImageView) root.findViewById(R.id.img_livre2)).setOnClickListener(new View.OnClickListener() {
@@ -85,15 +87,14 @@ public class HomeFragment extends Fragment {
         return root;
     }
 
-//    public void getDate(View view){
-//        DateTimeFormatter dateTimeFormatter = null;
-//
-//
-//
-//        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-//            LocalDate date = LocalDate.now();
-//            dateTimeFormatter.ofPattern("E");
-//            Toast.makeText(HomeFragment.this.getContext(), "nous sommes " +dateTimeFormatter, Toast.LENGTH_SHORT).show();
-//        }
-//    }
+    public boolean isSabbath() {
+        if (getDayNumberOld(new Date()) == 6 && getHours(new Date()) > 16 ) {
+            return true;
+        }
+        if (getDayNumberOld(new Date()) != 7 || getHours(new Date()) >= 18) {
+            return false;
+        }
+        return true;
+    }
+
 }
