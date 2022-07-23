@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~  Created by TVB Ledoux on 19/07/22 11:16
+  ~  Created by TVB Ledoux on 23/07/22 20:59
   ~  Copyright (c) 2022 . All rights reserved.
-  ~  Last modified 19/07/22 10:33
+  ~  Last modified 23/07/22 20:12
   -->
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -163,6 +163,7 @@
                     android:paddingStart="@dimen/_8sdp">
 
                     <ImageView
+                        android:id="@+id/nyimboFav"
                         android:layout_width="@dimen/_36sdp"
                         android:layout_height="@dimen/_20sdp"
                         android:layout_marginEnd="@dimen/_16ssp"
@@ -170,6 +171,7 @@
                         android:src="@drawable/ic_lover" />
 
                     <ImageView
+                        android:id="@+id/nyimboCat"
                         android:layout_width="@dimen/_28sdp"
                         android:layout_height="@dimen/_24sdp"
                         android:layout_marginEnd="@dimen/_16ssp"

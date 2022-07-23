@@ -1,7 +1,7 @@
 /*
- *  Created by TVB Ledoux on 19/07/22 11:16
+ *  Created by TVB Ledoux on 23/07/22 20:59
  *  Copyright (c) 2022 . All rights reserved.
- *  Last modified 19/07/22 11:15
+ *  Last modified 23/07/22 20:12
  */
 
 package com.sda.projet.navigation;
@@ -25,6 +25,8 @@ import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.sda.projet.R;
 import com.sda.projet.chant.Hymnes_et_lg;
 import com.sda.projet.chant.Nyimbo_z_kristo;
+import com.sda.projet.chant.categorie.Categorie;
+import com.sda.projet.chant.favoris.NyimboFav;
 
 
 import java.util.Calendar;
@@ -78,6 +80,20 @@ public class HomeFragment extends Fragment {
         ((ImageView) root.findViewById(R.id.img_livre1)).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 HomeFragment.this.startActivity(new Intent(HomeFragment.this.getActivity(), Hymnes_et_lg.class));
+                Animatoo.animateSlideRight(HomeFragment.this.getContext());
+            }
+        });
+
+        ((ImageView) root.findViewById(R.id.nyimboFav)).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                HomeFragment.this.startActivity(new Intent(HomeFragment.this.getActivity(), NyimboFav.class));
+                Animatoo.animateSlideRight(HomeFragment.this.getContext());
+            }
+        });
+
+        ((ImageView) root.findViewById(R.id.nyimboCat)).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                HomeFragment.this.startActivity(new Intent(HomeFragment.this.getActivity(), Categorie.class));
                 Animatoo.animateSlideRight(HomeFragment.this.getContext());
             }
         });

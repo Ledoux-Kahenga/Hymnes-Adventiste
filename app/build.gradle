@@ -1,7 +1,7 @@
 /*
- *  Created by TVB Ledoux on 10/07/22 22:19
+ *  Created by TVB Ledoux on 23/07/22 20:59
  *  Copyright (c) 2022 . All rights reserved.
- *  Last modified 10/07/22 22:15
+ *  Last modified 20/07/22 17:59
  */
 
 plugins {
@@ -64,7 +64,6 @@ dependencies {
     //Animatiom
     implementation 'com.github.mohammadatif:Animatoo:master'
 
-    implementation 'joda-time:joda-time:2.9.6'
-//    implementation 'joda-time:joda-time:2.4'
-//    implementation 'joda-time:joda-time:2.2'
+    implementation 'com.readystatesoftware.sqliteasset:sqliteassethelper:+'
+
 }

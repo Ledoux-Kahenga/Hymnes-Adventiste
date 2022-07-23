@@ -1,7 +1,7 @@
 /*
- *  Created by TVB Ledoux on 10/07/22 22:19
+ *  Created by TVB Ledoux on 23/07/22 20:59
  *  Copyright (c) 2022 . All rights reserved.
- *  Last modified 10/07/22 22:15
+ *  Last modified 22/07/22 17:30
  */
 
 package com.sda.projet.menu;
@@ -10,7 +10,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.sda.projet.R;
+import com.sda.projet.navigation.HomeFragment;
 import com.sda.projet.parametres.SharedPref;
 
 public class Apropos extends AppCompatActivity {
@@ -29,5 +31,11 @@ public class Apropos extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_apropos);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Animatoo.animateSlideRight(getApplicationContext());
     }
 }

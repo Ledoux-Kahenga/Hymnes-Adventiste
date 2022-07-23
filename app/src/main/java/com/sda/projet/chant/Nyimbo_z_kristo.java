@@ -1,7 +1,7 @@
 /*
- *  Created by TVB Ledoux on 17/07/22 15:00
+ *  Created by TVB Ledoux on 23/07/22 20:59
  *  Copyright (c) 2022 . All rights reserved.
- *  Last modified 13/07/22 17:20
+ *  Last modified 20/07/22 19:23
  */
 
 package com.sda.projet.chant;
@@ -49,10 +49,6 @@ import com.sda.projet.R;
 import com.sda.projet.chant.model.adapteur.recyclerview.RecyclerViewAdapteurNym;
 import com.sda.projet.parametres.SharedPref;
 
-import org.joda.time.DateTimeConstants;
-
-import java.time.DayOfWeek;
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Nyimbo_z_kristo extends AppCompatActivity {
@@ -173,14 +169,6 @@ public class Nyimbo_z_kristo extends AppCompatActivity {
             }
         });
 
-        // Set path to the button
-
-
-        // Set Onclick listener to the button
-
-//        findViewById()ActivityDialogWindowActivityfindViewById()Dialog
-//
-//
 
 
     }
@@ -191,11 +179,11 @@ public class Nyimbo_z_kristo extends AppCompatActivity {
         Animatoo.animateSlideRight(this);
     }
 
+
+    // ------ CLAVIER DIALOG -----------//
     private void showDialog() {
 
 
-
-//        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.clavier_numero);
 
         dialog.show();

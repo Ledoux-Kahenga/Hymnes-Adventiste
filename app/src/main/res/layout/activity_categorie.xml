@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Created by TVB Ledoux on 23/07/22 20:59
+  ~  Copyright (c) 2022 . All rights reserved.
+  ~  Last modified 23/07/22 19:48
+  -->
+
+<androidx.viewpager.widget.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/view_pager4"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/primary_fond"
+    tools:context=".MainActivity3">
+
+</androidx.viewpager.widget.ViewPager>

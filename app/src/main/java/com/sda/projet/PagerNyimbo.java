@@ -1,7 +1,7 @@
 /*
- *  Created by TVB Ledoux on 19/07/22 15:58
+ *  Created by TVB Ledoux on 23/07/22 20:59
  *  Copyright (c) 2022 . All rights reserved.
- *  Last modified 19/07/22 15:38
+ *  Last modified 22/07/22 17:30
  */
 
 package com.sda.projet;
@@ -57,8 +57,8 @@ public class PagerNyimbo extends PagerAdapter {
     RelativeLayout relativeLayoutZoomm;
     NestedScrollView nestedScrollView;
 
-    //    TextView zoomIn, zoomIn1, zoomIn2, zoomIn3, zoomOut, zoomOut1, zoomOut2, zoomOut3;
     ImageView zoomIn, zoomOut;
+    float x;
 
 
     MediaPlayer mediaPlayer;
@@ -144,14 +144,15 @@ public class PagerNyimbo extends PagerAdapter {
             @Override
             public void onClick(View v) {
 
-                float x = contenu.getTextSize();
+                x = contenu.getTextSize();
 
-                if (x <= 40){
+                if (x <= 40) {
+
                     Toast.makeText(context, R.string.moinsTaille, Toast.LENGTH_SHORT).show();
-                }else {
+
+                } else {
                     contenu.setTextSize(TypedValue.COMPLEX_UNIT_PX, x - 5f);
                 }
-
 
 
             }
@@ -160,11 +161,11 @@ public class PagerNyimbo extends PagerAdapter {
         zoomOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                float x = contenu.getTextSize();
+                x = contenu.getTextSize();
 
-                if (x >= 110){
+                if (x >= 110) {
                     Toast.makeText(context, R.string.plusTaille, Toast.LENGTH_SHORT).show();
-                }else {
+                } else {
                     contenu.setTextSize(TypedValue.COMPLEX_UNIT_PX, x + 5f);
                 }
 
@@ -543,7 +544,6 @@ public class PagerNyimbo extends PagerAdapter {
                     audio.setImageResource(R.drawable.ic_play_btn);
                 }
 
-
             }
 
         });
@@ -553,22 +553,19 @@ public class PagerNyimbo extends PagerAdapter {
             @Override
             public void onClick(View v) {
 
-//                try {
-                    Intent intent = new Intent(Intent.ACTION_SEND);
-                    intent.setType("text/html");
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/html");
 
-                    intent.putExtra(Intent.EXTRA_TEXT, mainModelList2.get(position).num + " - " + mainModelList2.get(position).titre + "</br>" + mainModelList2.get(position).contenu);
-                    context.startActivity(Intent.createChooser(intent, "Partager"));
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-
+                intent.putExtra(Intent.EXTRA_TEXT, mainModelList2.get(position).num + " - " + mainModelList2.get(position).titre + "</br>" +  mainModelList2.get(position).contenu);
+                context.startActivity(Intent.createChooser(intent, "Partager"));
 
             }
         });
 
+
         container.addView(view);
         return view;
+
 
     }
 
