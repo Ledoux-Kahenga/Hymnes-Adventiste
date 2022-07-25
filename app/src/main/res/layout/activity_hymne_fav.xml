@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Created by TVB Ledoux on 25/07/22 18:49
+  ~  Copyright (c) 2022 . All rights reserved.
+  ~  Last modified 24/07/22 07:35
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".chant.favoris.NyimboFav">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerHymnesFav"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</RelativeLayout>

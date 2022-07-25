@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~  Created by TVB Ledoux on 23/07/22 20:59
+  ~  Created by TVB Ledoux on 25/07/22 18:49
   ~  Copyright (c) 2022 . All rights reserved.
-  ~  Last modified 23/07/22 20:12
+  ~  Last modified 24/07/22 07:35
   -->
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -115,6 +115,7 @@
                         android:src="@drawable/ic_notebook1" />
 
                     <ImageView
+                        android:id="@+id/hymneFave"
                         android:layout_width="@dimen/_36sdp"
                         android:layout_height="@dimen/_20sdp"
                         android:layout_marginStart="@dimen/_12ssp"

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~  Created by TVB Ledoux on 10/07/22 22:19
+  ~  Created by TVB Ledoux on 25/07/22 18:49
   ~  Copyright (c) 2022 . All rights reserved.
-  ~  Last modified 10/07/22 22:15
+  ~  Last modified 24/07/22 16:20
   -->
 
 <androidx.viewpager.widget.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
@@ -12,6 +12,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/primary_fond"
-    tools:context=".MainActivity2">
+    tools:context=".chant.chantActivity.HynesActivity">
 
 </androidx.viewpager.widget.ViewPager>

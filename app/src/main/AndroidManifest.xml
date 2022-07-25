@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~  Created by TVB Ledoux on 23/07/22 20:59
+  ~  Created by TVB Ledoux on 25/07/22 18:49
   ~  Copyright (c) 2022 . All rights reserved.
-  ~  Last modified 23/07/22 19:39
+  ~  Last modified 24/07/22 16:20
   -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.sda.projet">
+    package="com.sda.HymnesAdventiste">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -18,7 +18,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppThemeLight">
-        <activity android:name=".chant.categorie.Categorie"></activity>
+        <activity android:name=".chant.favoris.HymneFav"></activity>
+        <activity android:name=".chant.categorie.Categorie" />
         <activity android:name=".chant.favoris.NyimboFav" />
         <activity android:name=".menu.Apropos" />
         <activity
@@ -32,16 +33,16 @@
             android:theme="@style/AppThemeLight.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.sda.projet.menu.AproposListActivity" />
+                android:value="com.sda.HymnesAdventiste.menu.AproposListActivity" />
         </activity>
         <activity
             android:name=".parametres.Parametres"
             android:theme="@style/SettingsLight" />
         <activity
-            android:name=".MainActivity2"
+            android:name=".chant.chantActivity.HynesActivity"
             android:theme="@style/Chant" />
         <activity
-            android:name=".MainActivity3"
+            android:name=".chant.chantActivity.NyimboActivity"
             android:theme="@style/Chant" />
         <activity android:name=".SplashScreen">
             <intent-filter>

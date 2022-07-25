@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?><!--
-  ~  Created by TVB Ledoux on 19/07/22 11:16
+  ~  Created by TVB Ledoux on 25/07/22 18:49
   ~  Copyright (c) 2022 . All rights reserved.
-  ~  Last modified 17/07/22 15:13
+  ~  Last modified 24/07/22 16:15
   -->
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -11,7 +11,7 @@
     android:layout_height="match_parent"
     android:background="?attr/primary_fond_chant"
     android:fitsSystemWindows="true"
-    tools:context=".MainActivity3">
+    tools:context=".chant.chantActivity.NyimboActivity">
 
 
     <com.google.android.material.appbar.AppBarLayout
@@ -72,12 +72,12 @@
                         app:tint="?attr/texte_primary" />
 
                     <ImageView
-                        android:id="@+id/imageBacks"
+                        android:id="@+id/imageFavori1"
                         android:layout_width="@dimen/_20sdp"
                         android:layout_height="@dimen/_28sdp"
                         android:layout_marginStart="@dimen/_14sdp"
                         android:layout_marginEnd="@dimen/_14sdp"
-                        android:src="@drawable/ic_coeur"
+                        android:src="@drawable/ic_coeur1"
                         app:tint="?attr/texte_primary" />
 
                     <ImageView
