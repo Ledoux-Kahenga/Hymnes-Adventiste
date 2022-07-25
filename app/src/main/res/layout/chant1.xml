@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?><!--
-  ~  Created by TVB Ledoux on 25/07/22 18:49
+  ~  Created by TVB Ledoux on 25/07/22 21:37
   ~  Copyright (c) 2022 . All rights reserved.
-  ~  Last modified 24/07/22 16:15
+  ~  Last modified 25/07/22 21:31
   -->
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -61,28 +61,34 @@
                     android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent">
 
-                    <include layout="@layout/lecteur" />
+                    <ImageView
+                        android:id="@+id/audio"
+                        android:layout_width="@dimen/_24sdp"
+                        android:layout_height="@dimen/_24sdp"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:src="@drawable/ic_play_btn"
+                        app:tint="?attr/color_icones" />
 
                     <ImageView
                         android:id="@+id/share"
                         android:layout_width="@dimen/_20sdp"
                         android:layout_height="@dimen/_26sdp"
-                        android:layout_marginStart="@dimen/_14sdp"
+                        android:layout_marginStart="@dimen/_12sdp"
                         android:src="@drawable/ic_share"
                         app:tint="?attr/texte_primary" />
 
                     <ImageView
                         android:id="@+id/imageFavori1"
-                        android:layout_width="@dimen/_20sdp"
-                        android:layout_height="@dimen/_28sdp"
-                        android:layout_marginStart="@dimen/_14sdp"
-                        android:layout_marginEnd="@dimen/_14sdp"
+                        android:layout_width="@dimen/_26sdp"
+                        android:layout_height="@dimen/_26sdp"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:layout_marginEnd="@dimen/_12sdp"
                         android:src="@drawable/ic_coeur1"
                         app:tint="?attr/texte_primary" />
 
                     <ImageView
                         android:id="@+id/ref1"
-                        android:layout_width="@dimen/_24sdp"
+                        android:layout_width="@dimen/_26sdp"
                         android:layout_height="@dimen/_26sdp"
                         android:layout_marginEnd="@dimen/_14sdp"
                         android:src="@drawable/ic_change"

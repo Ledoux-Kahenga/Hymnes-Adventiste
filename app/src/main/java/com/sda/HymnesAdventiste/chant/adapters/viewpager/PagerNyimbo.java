@@ -1,7 +1,7 @@
 /*
- *  Created by TVB Ledoux on 25/07/22 18:49
+ *  Created by TVB Ledoux on 25/07/22 21:37
  *  Copyright (c) 2022 . All rights reserved.
- *  Last modified 25/07/22 18:08
+ *  Last modified 25/07/22 21:17
  */
 
 package com.sda.HymnesAdventiste.chant.adapters.viewpager;
@@ -555,34 +555,38 @@ public class PagerNyimbo extends PagerAdapter {
 
         });
 
+        Model model = models.get(position);
         AddFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Model model = models.get(position);
+
 
                 if (model.getLyricFavorite() == 0){
 
                     model.setLyricFavorite(1);
                     dBcantique.AddToFavorite(id);
-                    if (model.getLyricFavorite() == 1){
-                        AddFavorite.setImageResource(R.drawable.ic_coeur2);
-                    }
-
+                    AddFavorite.setBackgroundResource(R.drawable.ic_coeur2);
 
                     Toast.makeText(context, "Vous avez Ajouter ce chant aux favoris", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     model.setLyricFavorite(0);
                     dBcantique.RemoveToFavorite(models.get(position).getId());
-                    if (model.getLyricFavorite() == 0){
-                        AddFavorite.setImageResource(R.drawable.ic_coeur1);
-                    }
+                    AddFavorite.setBackgroundResource(R.drawable.ic_coeur1);
                     Toast.makeText(context, "Vous avez Supprimer ce chant des favoris", Toast.LENGTH_SHORT).show();
                 }
 
             }
         });
+
+
+        if (model.getLyricFavorite() == 1){
+        AddFavorite.setBackgroundResource(R.drawable.ic_coeur2);
+        }
+        if (model.getLyricFavorite() == 0){
+            AddFavorite.setBackgroundResource(R.drawable.ic_coeur1);
+        }
 
         ImageView Share = view.findViewById(R.id.share);
         Share.setOnClickListener(new View.OnClickListener() {
