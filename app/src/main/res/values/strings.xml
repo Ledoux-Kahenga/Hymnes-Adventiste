@@ -1,7 +1,7 @@
 <!--
-  ~  Created by TVB Ledoux on 19/07/22 15:58
+  ~  Created by TVB Ledoux on 01/08/22 18:55
   ~  Copyright (c) 2022 . All rights reserved.
-  ~  Last modified 19/07/22 15:01
+  ~  Last modified 25/07/22 22:36
   -->
 
 <resources>
@@ -40,6 +40,8 @@
     <string name="desactiver">Mode Sombre desactivé</string>
     <string name="numero">Il faut entrer un numéro entre 1 et 220</string>
     <string name="sabbat">Bon sabbat!</string>
+    <string name="AjoutFavoris">Vous avez Ajouter ce chant aux favoris</string>
+    <string name="SupFavoris">Vous avez Supprimer ce chant des favoris</string>
     <string name="plusTaille">Vous avez atteint la limite supérieure</string>
     <string name="moinsTaille">Vous avez atteint la limite inférieure</string>
 

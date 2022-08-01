@@ -1,7 +1,7 @@
  /*
- *  Created by TVB Ledoux on 25/07/22 18:49
+ *  Created by TVB Ledoux on 01/08/22 18:55
  *  Copyright (c) 2022 . All rights reserved.
- *  Last modified 24/07/22 16:32
+ *  Last modified 01/08/22 13:22
  */
 
  package com.sda.HymnesAdventiste.chant.chantActivity;
@@ -79,7 +79,7 @@
      private void storeDataInArray() {
 
          SQLiteDatabase database = dBcantique.getReadableDatabase();
-         Cursor cursor = dBcantique.readAllData();
+         Cursor cursor = dBcantique.readAllData1();
          position = getIntent().getIntExtra("pose", 0);
          try {
              while (cursor.moveToNext()) {

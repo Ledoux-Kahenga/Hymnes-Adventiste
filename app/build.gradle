@@ -1,7 +1,7 @@
 /*
- *  Created by TVB Ledoux on 23/07/22 20:59
+ *  Created by TVB Ledoux on 01/08/22 18:55
  *  Copyright (c) 2022 . All rights reserved.
- *  Last modified 20/07/22 17:59
+ *  Last modified 27/07/22 00:19
  */
 
 plugins {
@@ -63,6 +63,8 @@ dependencies {
 
     //Animatiom
     implementation 'com.github.mohammadatif:Animatoo:master'
+    implementation 'com.sackcentury:shinebutton:1.0.0'
+    implementation 'com.airbnb.android:lottie:3.4.4'
 
     implementation 'com.readystatesoftware.sqliteasset:sqliteassethelper:+'
 

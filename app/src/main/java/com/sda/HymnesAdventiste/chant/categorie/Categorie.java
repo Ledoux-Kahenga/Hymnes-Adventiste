@@ -1,13 +1,12 @@
 /*
- *  Created by TVB Ledoux on 25/07/22 18:49
+ *  Created by TVB Ledoux on 01/08/22 18:55
  *  Copyright (c) 2022 . All rights reserved.
- *  Last modified 24/07/22 16:32
+ *  Last modified 01/08/22 13:22
  */
 
 package com.sda.HymnesAdventiste.chant.categorie;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -25,19 +24,19 @@ public class Categorie extends AppCompatActivity {
 
     DBcantique dBcantique;
     List<Model> model = new ArrayList<>();
-    ViewPager viewPager;
+
 //    PagerCategorie pagerCategorie;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categorie);
-        viewPager = (ViewPager)findViewById(R.id.view_pager4);
-        viewPager.setPageTransformer(true,new AccordionTransformer());
 
-        dBcantique = new DBcantique(Categorie.this);
+//        viewPager.setPageTransformer(true,new AccordionTransformer());
 
-        storeDataInArray();
+//        dBcantique = new DBcantique(Categorie.this);
+//
+//        storeDataInArray();
 
 
     }
@@ -45,7 +44,7 @@ public class Categorie extends AppCompatActivity {
     private void storeDataInArray() {
 
         SQLiteDatabase database = dBcantique.getReadableDatabase();
-        Cursor cursor = dBcantique.readAllData();
+        Cursor cursor = dBcantique.readAllData1();
         try {
             while (cursor.moveToNext()){
                 int id = Integer.parseInt(cursor.getString(cursor.getColumnIndex(dBcantique.ID1)));

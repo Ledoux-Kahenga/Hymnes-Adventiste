@@ -1,61 +1,82 @@
 /*
- *  Created by TVB Ledoux on 25/07/22 18:49
+ *  Created by TVB Ledoux on 01/08/22 18:55
  *  Copyright (c) 2022 . All rights reserved.
- *  Last modified 24/07/22 16:32
+ *  Last modified 01/08/22 17:14
  */
 
 package com.sda.HymnesAdventiste.chant.adapters.viewpager;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.text.Html;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.widget.NestedScrollView;
 import androidx.viewpager.widget.PagerAdapter;
 
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.sda.HymnesAdventiste.animation.TranslateAnimationUtil;
+import com.sda.HymnesAdventiste.chant.Nyimbo_z_kristo;
+import com.sda.HymnesAdventiste.chant.chantActivity.HynesActivity;
 import com.sda.HymnesAdventiste.chant.models.MainModel;
 import com.sda.HymnesAdventiste.R;
 import com.sda.HymnesAdventiste.chant.audio.AudioPlay;
 import com.sda.HymnesAdventiste.chant.chantActivity.NyimboActivity;
+import com.sda.HymnesAdventiste.chant.models.Model;
+import com.sda.HymnesAdventiste.database.DBcantique;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class PagerHymnes extends PagerAdapter {
-
     Context context;
-    List<MainModel> mainModelList;
+    List<Model> models;
     LayoutInflater inflater;
-//    private  boolean flags = true;
-    private  MediaPlayer mediaPlayer;
-//    private static MediaPlayer mp2 = null;
-//    private static boolean myIsPlaying = false;
-//    private static int nowPlaying;
-//    private int DisplayedSongNo;
-//
-    private List<String> allmp3 = new ArrayList();
+    DBcantique dBcantique;
+    LayoutInflater inflatere;
+    FloatingActionButton bottomsheet;
+    Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0;
 
-//    ArrayList<String> StrigList;
-//    MediaPlayer mediaPlayer;
+    RelativeLayout relativeLayoutZoomm;
+    NestedScrollView nestedScrollView;
+
+    ImageView zoomIn, zoomOut;
+    float x,y,z;
 
 
-    public PagerHymnes(Context context, List<MainModel> mainModelList) {
+    MediaPlayer mediaPlayer;
+    ImageView btn_Sup, btn_Go;
+    TextView affichage;
+    private Dialog dialog;
+    private Dialog dialogs;
+
+    public PagerHymnes(Context context, List<Model> models) {
         this.context = context;
-        this.mainModelList = mainModelList;
+        this.models = models;
         inflater = LayoutInflater.from(context);
+        inflatere = LayoutInflater.from(context);
     }
 
     @Override
     public int getCount() {
-        return mainModelList.size();
+        return models.size();
     }
 
     @Override
@@ -72,79 +93,527 @@ public class PagerHymnes extends PagerAdapter {
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         // inflate View
-
+        DBcantique dBcantique = new DBcantique(context);
 //        AudioPlay audioC = new AudioPlay(position);
-        View view = inflater.inflate(R.layout.chant,container,false);
+        View view = inflater.inflate(R.layout.chant, container, false);
 
-
-        String refer;
 
         //view
-        TextView num = (TextView) view.findViewById(R.id.movie_texte);
-        TextView titre = (TextView) view.findViewById(R.id.movie_title);
-        TextView contenu = (TextView) view.findViewById(R.id.movie_texte_description);
-        TextView auteur = (TextView) view.findViewById(R.id.movie_auteur);
+        TextView number = (TextView) view.findViewById(R.id.movie_texte);
+        TextView titleSwali = (TextView) view.findViewById(R.id.movie_title);
+        TextView lyric = (TextView) view.findViewById(R.id.movie_texte_description);
+        TextView titleEnglish  = (TextView) view.findViewById(R.id.movie_auteur);
         ImageView audio = (ImageView) view.findViewById(R.id.audio);
-        ImageView ref = (ImageView) view.findViewById(R.id.ref);
+        ImageView ref = (ImageView) view.findViewById(R.id.ref1);
+        TextView refTexte = (TextView) view.findViewById(R.id.h_l_ref);
+        ImageView back = view.findViewById(R.id.imageBacke);
+        ImageView AddFavorite = view.findViewById(R.id.imageFavori1);
         String midi;
-
+        String midiNumbe;
+        int reference;
+        int id;
+//        String titre = titleSwali.toString();
+//        titre.substring(5);
 
         //set data
-        num.setText(Html.fromHtml(mainModelList.get(position).num));
-        titre.setText(Html.fromHtml(mainModelList.get(position).titre));
-        contenu.setText(Html.fromHtml(mainModelList.get(position).contenu));
-        auteur.setText(Html.fromHtml(mainModelList.get(position).auteur));
-        refer =  mainModelList.get(position).ref;
-        midi = mainModelList.get(position).chemin;
-         int varRef = Integer.parseInt(refer);
+        number.setText(Html.fromHtml(models.get(position).getNumber()));
+        titleSwali.setText(Html.fromHtml(models.get(position).getTitleSwahili().substring(6)));
+        titleEnglish.setText(Html.fromHtml(models.get(position).getTitleEnglish()));
+        lyric.setText(Html.fromHtml(models.get(position).getLyric()));
+        midiNumbe = "a";
+        midi = midiNumbe.concat(models.get(position).getNumber());
+        reference = models.get(position).getReferenceHymne();
+        id = models.get(position).getId();
+
+        if (reference == 0) {
+            refTexte.setText(" ");
+        } else {
+            refTexte.setText("H&L:" + reference);
+        }
+
+        nestedScrollView = view.findViewById(R.id.scrollv);
+        relativeLayoutZoomm = view.findViewById(R.id.zoom);
+
+        nestedScrollView.setOnTouchListener(new TranslateAnimationUtil(context, relativeLayoutZoomm));
 
 
-        ref.setOnClickListener(new View.OnClickListener() {
+        zoomIn = view.findViewById(R.id.zoomIn);
+        zoomOut = view.findViewById(R.id.zoomOut);
+
+
+        zoomIn.setOnClickListener(new View.OnClickListener() {
 
 
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(context, NyimboActivity.class);
-                intent.putExtra("pose", varRef-1);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                x = lyric.getTextSize();
+                y = titleSwali.getTextSize();
+                z = number.getTextSize();
 
+                if (x <= 40) {
+
+                    Toast.makeText(context, R.string.moinsTaille, Toast.LENGTH_SHORT).show();
+
+                } else {
+                    titleSwali.setTextSize(TypedValue.COMPLEX_UNIT_PX, y - 1f);
+                    lyric.setTextSize(TypedValue.COMPLEX_UNIT_PX, x - 5f);
+                    number.setTextSize(TypedValue.COMPLEX_UNIT_PX, z - 1.5f);
+                }
+
+
+            }
+        });
+
+        zoomOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                y = titleSwali.getTextSize();
+                x = lyric.getTextSize();
+                z = number.getTextSize();
+
+                if (x >= 110) {
+                    Toast.makeText(context, R.string.plusTaille, Toast.LENGTH_SHORT).show();
+                } else {
+                    titleSwali.setTextSize(TypedValue.COMPLEX_UNIT_PX, y + 1f);
+                    lyric.setTextSize(TypedValue.COMPLEX_UNIT_PX, x + 5f);
+                    number.setTextSize(TypedValue.COMPLEX_UNIT_PX, z + 1.3f);
+
+                }
+
+            }
+
+        });
+
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, Nyimbo_z_kristo.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 context.startActivity(intent);
-                Animatoo.animateSpin(context);
+                try {
+
+//                    if (mediaPlayer.isPlaying()) {
+//                        mediaPlayer.release();
+//                        mediaPlayer = null;
+////                    audio.setImageResource(R.drawable.ic_play_btn);
+//                    } else if (!mediaPlayer.isPlaying()) {
+//                        mediaPlayer = null;
+//                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+
+                Animatoo.animateSlideRight(context);
             }
         });
 
 
+        int finalReference = reference;
+        ref.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-                audio.setOnClickListener(new View.OnClickListener() {
+                if (finalReference < 1) {
+
+                    dialog = new Dialog(context);
+                    dialog.setContentView(R.layout.page_introuvable);
+                    dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation_pageIntrouvable;
+
+                    dialog.show();
+
+                    ImageView Whatsapp = dialog.findViewById(R.id.Whatsapp);
+                    Whatsapp.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+                            String var_NB = "N.B: Remplacer les (???) par le numero correspondant\n\n\n ";
+
+                            try {
+                                String headerReceiver = "tete";// Replace with your message.
+                                String bodyMessageFormal = "corp";// Replace with your message.
+                                String whatsappContain = headerReceiver + bodyMessageFormal;
+                                String trimToNumner = "+243 825838806"; //10 digit number
+                                Intent intent = new Intent(Intent.ACTION_VIEW);
+                                intent.setData(Uri.parse("https://wa.me/" + trimToNumner + "/?text=" + var_NB + Html.fromHtml(models.get(position).getNumber() + " - " + models.get(position).getTitleSwahili() + " = (???) ")));
+                                context.startActivity(Intent.createChooser(intent, "Soumettez la reference"));
+                                dialog.dismiss();
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+
+                        }
+                    });
+
+                    ImageView Gmail = dialog.findViewById(R.id.Gmail);
+                    Gmail.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+                            try {
+
+                                Intent intent = new Intent(Intent.ACTION_SENDTO);
+                                intent.setData(Uri.parse("mailto:"));
+                                String[] to = {"ledouxkahenga25@gmail.com"};
+                                intent.putExtra(Intent.EXTRA_EMAIL, to);
+                                intent.putExtra(Intent.EXTRA_SUBJECT, "LES REFERENCES DES NUMEROS NYIMBO ZA KRISTO - HYMNES ET LOUANGES ");
+                                intent.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(models.get(position).getNumber() + " - " + models.get(position).getTitleSwahili() + " = ?????? "));
+                                dialog.dismiss();
+                                context.startActivity(Intent.createChooser(intent, "Soumettez la reference"));
+
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    });
+
+                    ImageView Sms = dialog.findViewById(R.id.Sms);
+                    Sms.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+                            try {
+                                String var_NB = "N.B: Remplacer les (???) par le numero correspondant\n\n\n ";
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.fromParts("sms", "0972525920", null));
+
+                                intent.putExtra(Intent.EXTRA_TEXT, var_NB + models.get(position).getNumber() + " - " + models.get(position).getTitleSwahili() + " = (???) ");
+                                dialog.dismiss();
+                                context.startActivity(Intent.createChooser(intent, "Soumettez la reference "));
+
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    });
+
+                } else {
+                    Intent intent = new Intent(context, HynesActivity.class);
+                    intent.putExtra("pos", finalReference - 1);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+                    context.startActivity(intent);
+                    try {
+
+//                        if (mediaPlayer.isPlaying()) {
+//                            mediaPlayer.release();
+//                            mediaPlayer = null;
+////                    audio.setImageResource(R.drawable.ic_play_btn);
+//                        } else if (!mediaPlayer.isPlaying()) {
+//                            mediaPlayer = null;
+//                        }
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+//                    audio.setImageResource(R.drawable.ic_play_btn);
+                    Animatoo.animateSpin(context);
+                }
+
+            }
+        });
+
+
+        //    bottom sheet
+        bottomsheet = view.findViewById(R.id.btn_sheet_nzk);
+        bottomsheet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                dialogs = new Dialog(context);
+                dialogs.setContentView(R.layout.clavier_numero);
+
+                dialogs.show();
+                dialogs.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                dialogs.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialogs.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+                dialogs.getWindow().setGravity(Gravity.BOTTOM);
+
+                btn0 = dialogs.findViewById(R.id.btn0);
+                btn1 = dialogs.findViewById(R.id.btn1);
+                btn2 = dialogs.findViewById(R.id.btn2);
+                btn3 = dialogs.findViewById(R.id.btn3);
+                btn4 = dialogs.findViewById(R.id.btn4);
+                btn5 = dialogs.findViewById(R.id.btn5);
+                btn6 = dialogs.findViewById(R.id.btn6);
+                btn7 = dialogs.findViewById(R.id.btn7);
+                btn8 = dialogs.findViewById(R.id.btn8);
+                btn9 = dialogs.findViewById(R.id.btn9);
+                btn_Sup = dialogs.findViewById(R.id.btn_sup);
+                btn_Go = dialogs.findViewById(R.id.btn_ok);
+                affichage = dialogs.findViewById(R.id.txvDisplay);
+
+                btn0.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        if (affichage.length() <= 2) {
+                            affichage.setText(affichage.getText() + "0");
+                        } else {
+                            affichage.setText(affichage.getText());
+                        }
+
+                    }
+                });
+
+                btn1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        if (affichage.length() <= 2) {
+                            affichage.setText(affichage.getText() + "1");
+                        } else {
+                            affichage.setText(affichage.getText());
+                        }
+
+                    }
+                });
+
+                btn2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        if (affichage.length() <= 2) {
+                            affichage.setText(affichage.getText() + "2");
+                        } else {
+                            affichage.setText(affichage.getText());
+                        }
+
+                    }
+                });
+
+                btn3.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        if (affichage.length() <= 2) {
+                            affichage.setText(affichage.getText() + "3");
+                        } else {
+                            affichage.setText(affichage.getText());
+                        }
+
+                    }
+                });
+
+                btn4.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        if (affichage.length() <= 2) {
+                            affichage.setText(affichage.getText() + "4");
+                        } else {
+                            affichage.setText(affichage.getText());
+                        }
+
+                    }
+                });
+
+                btn5.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        if (affichage.length() <= 2) {
+                            affichage.setText(affichage.getText() + "5");
+                        } else {
+                            affichage.setText(affichage.getText());
+                        }
+
+                    }
+                });
+
+                btn6.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        if (affichage.length() <= 2) {
+                            affichage.setText(affichage.getText() + "6");
+                        } else {
+                            affichage.setText(affichage.getText());
+                        }
+
+                    }
+                });
+
+                btn7.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        if (affichage.length() <= 2) {
+                            affichage.setText(affichage.getText() + "7");
+                        } else {
+                            affichage.setText(affichage.getText());
+                        }
+
+                    }
+                });
+
+                btn8.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        if (affichage.length() <= 2) {
+                            affichage.setText(affichage.getText() + "8");
+                        } else {
+                            affichage.setText(affichage.getText());
+                        }
+
+                    }
+                });
+
+                btn9.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        if (affichage.length() <= 2) {
+                            affichage.setText(affichage.getText() + "9");
+                        } else {
+                            affichage.setText(affichage.getText());
+                        }
+
+                    }
+                });
+
+                btn_Sup.setOnClickListener(new View.OnClickListener() {
+                    String val;
 
                     @Override
                     public void onClick(View v) {
 
-                        int resID = context.getResources().getIdentifier(midi,"raw",context.getPackageName());
+                        try {
+                            val = affichage.getText().toString();
+                            val = val.substring(0, val.length() - 1);
+
+                        } catch (StringIndexOutOfBoundsException e) {
+                            e.printStackTrace();
+                        }
 
 
-                        if (AudioPlay.mediaPlayer == null) {
+                        affichage.setText(val);
 
-                            AudioPlay.playAudio(context,resID);
-                            audio.setImageResource(R.drawable.ic_stop);
+                    }
+                });
 
-                        } else if (AudioPlay.mediaPlayer != null) {
+                btn_Go.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+//                String val = "bonjour";
 
-                            AudioPlay.stopAudio();
-                            audio.setImageResource(R.drawable.ic_play_btn);
+                        int go = 0;
+
+                        try {
+                            go = Integer.parseInt(affichage.getText().toString());
+
+                            if (go == 0 || go > 654) {
+
+                                View layout = inflatere.inflate(R.layout.chant_introuvable, (ViewGroup) view.findViewById(R.id.exit_toast));
+                                Toast toast = new Toast(context);
+                                toast.setView(layout);
+                                toast.setDuration(Toast.LENGTH_SHORT);
+                                toast.show();
+                                toast.setGravity(Gravity.CENTER, 0, 0);
+                            } else {
+                                Intent intent = new Intent(context, HynesActivity.class);
+                                intent.putExtra("pos", go - 1);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                context.startActivity(intent);
+                                Animatoo.animateFade(context);
+
+                                dialogs.dismiss();
+
+                            }
+
+                        } catch (NumberFormatException e) {
+                            e.printStackTrace();
                         }
 
                     }
 
                 });
+            }
+        });
+
+
+        audio.setOnClickListener(new View.OnClickListener() {
+
+
+            @Override
+            public void onClick(View v) {
+
+                int resID = context.getResources().getIdentifier(midi, "raw", context.getPackageName());
+
+
+                if (AudioPlay.mediaPlayer == null) {
+
+                    AudioPlay.playAudio(context, resID);
+                    audio.setImageResource(R.drawable.ic_stop);
+
+                } else if (AudioPlay.mediaPlayer != null) {
+
+                    AudioPlay.stopAudio();
+                    audio.setImageResource(R.drawable.ic_play_btn);
+                }
+
+            }
+
+        });
+
+        Model model = models.get(position);
+        AddFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+
+                if (model.getLyricFavorite() == 0){
+
+                    model.setLyricFavorite(1);
+                    dBcantique.AddToFavorite2(id);
+                    AddFavorite.setBackgroundResource(R.drawable.ic_coeur2);
+
+                    Toast.makeText(context, R.string.AjoutFavoris, Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    model.setLyricFavorite(0);
+                    dBcantique.RemoveToFavorite2(models.get(position).getId());
+                    AddFavorite.setBackgroundResource(R.drawable.ic_coeur1);
+                    Toast.makeText(context, R.string.SupFavoris, Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+
+
+        if (model.getLyricFavorite() == 1){
+            AddFavorite.setBackgroundResource(R.drawable.ic_coeur2);
+        }
+        if (model.getLyricFavorite() == 0){
+            AddFavorite.setBackgroundResource(R.drawable.ic_coeur1);
+        }
+
+        ImageView Share = view.findViewById(R.id.share);
+        Share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/html");
+
+                intent.putExtra(Intent.EXTRA_TEXT, models.get(position).getNumber() + " - " + models.get(position).getTitleSwahili() + "</br>" +  models.get(position).getLyric());
+                context.startActivity(Intent.createChooser(intent, "Partager"));
+
+            }
+        });
 
 
 
         container.addView(view);
         return view;
+
+
     }
-
-
 
 }

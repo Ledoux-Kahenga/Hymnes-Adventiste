@@ -1,13 +1,15 @@
 
 
 /*
- *  Created by TVB Ledoux on 25/07/22 18:49
+ *  Created by TVB Ledoux on 01/08/22 18:55
  *  Copyright (c) 2022 . All rights reserved.
- *  Last modified 24/07/22 16:32
+ *  Last modified 01/08/22 14:12
  */
 
 package com.sda.HymnesAdventiste.chant.chantActivity;
 
+ import android.database.Cursor;
+ import android.database.sqlite.SQLiteDatabase;
  import android.os.Bundle;
  import android.widget.Toast;
 
@@ -23,28 +25,26 @@ package com.sda.HymnesAdventiste.chant.chantActivity;
  import com.google.firebase.database.FirebaseDatabase;
  import com.google.firebase.database.ValueEventListener;
  import com.sda.HymnesAdventiste.IFirebaseLoadDone;
+ import com.sda.HymnesAdventiste.chant.Hymnes_et_lg;
+ import com.sda.HymnesAdventiste.chant.adapters.viewpager.PagerNyimbo;
  import com.sda.HymnesAdventiste.chant.models.MainModel;
  import com.sda.HymnesAdventiste.chant.adapters.viewpager.PagerHymnes;
  import com.sda.HymnesAdventiste.R;
  import com.sda.HymnesAdventiste.chant.adapters.viewpager.transform.AccordionTransformer;
+ import com.sda.HymnesAdventiste.chant.models.Model;
+ import com.sda.HymnesAdventiste.database.DBcantique;
  import com.sda.HymnesAdventiste.parametres.SharedPref;
 
  import java.util.ArrayList;
  import java.util.List;
 
-public class HynesActivity extends AppCompatActivity implements IFirebaseLoadDone {
-
+public class HynesActivity extends AppCompatActivity  {
+    DBcantique dBcantique;
+    List<Model> model = new ArrayList<>();
     ViewPager viewPager;
-    PagerHymnes pagerHymnes;
-
-
-
-    DatabaseReference movies;
-
-    IFirebaseLoadDone iFirebaseLoadDone;
+    PagerHymnes pagerhymes;
 
     private SharedPref sharedPref;
-
     private int position;
 
 
@@ -67,62 +67,52 @@ public class HynesActivity extends AppCompatActivity implements IFirebaseLoadDon
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        movies = FirebaseDatabase.getInstance().getReference("chants");
+        viewPager = (ViewPager) findViewById(R.id.view_pager);
+        viewPager.setPageTransformer(true, new AccordionTransformer());
 
-        //Init Event
-        iFirebaseLoadDone = this;
+        dBcantique = new DBcantique(HynesActivity.this);
 
-        loadMovie();
+        storeDataInArray();
 
-        //AudioPlay
-
-
-        viewPager = (ViewPager)findViewById(R.id.view_pager);
-        viewPager.setPageTransformer(true,new AccordionTransformer());
-        getIntentInfo();
 
     }
 
-    private void loadMovie() {
-        movies.addListenerForSingleValueEvent(new ValueEventListener() {
-            List<MainModel> mainModelList = new ArrayList<>();
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                for (DataSnapshot movieSnapShot:snapshot.getChildren())
-                    mainModelList.add(movieSnapShot.getValue(MainModel.class));
-                iFirebaseLoadDone.onFirebaseLoadSuccess(mainModelList);
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-                iFirebaseLoadDone.onFirebaseFailed(error.getMessage());
-            }
-        });
-    }
-
-    @Override
-    public void onFirebaseLoadSuccess(List<MainModel> mainModelList) {
-
-        pagerHymnes = new PagerHymnes(this,mainModelList);
-        viewPager.setAdapter(pagerHymnes);
-        viewPager.setCurrentItem(position);
-    }
-
-    @Override
-    public void onFirebaseFailed(String message) {
-
-        Toast.makeText(this, ""+message, Toast.LENGTH_SHORT).show();
-    }
-
-    private void getIntentInfo(){
-        position = getIntent().getIntExtra("pos",0);
-    }
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Animatoo.animateSlideLeft(this);
+        Animatoo.animateSlideRight(this);
+    }
+
+    private void storeDataInArray() {
+
+        SQLiteDatabase database = dBcantique.getReadableDatabase();
+        Cursor cursor = dBcantique.readAllData2();
+        position = getIntent().getIntExtra("pos", 0);
+        try {
+            while (cursor.moveToNext()) {
+                int id = Integer.parseInt(cursor.getString(cursor.getColumnIndex(dBcantique.ID)));
+                int LyricFavorite = Integer.parseInt(cursor.getString(cursor.getColumnIndex(dBcantique.SONG_FAVORITE)));
+                String number = cursor.getString(cursor.getColumnIndex(dBcantique.SONG_NUMBER));
+                String titreShahili = cursor.getString(cursor.getColumnIndex(dBcantique.SONG_TITLE));
+                String titreEnglish = cursor.getString(cursor.getColumnIndex(dBcantique.SONG_AUTHOR));
+                String lyric = cursor.getString(cursor.getColumnIndex(dBcantique.SONG_LYRIC));
+                String lyricAudio= cursor.getString(cursor.getColumnIndex(dBcantique.SONG_LYRIC_AUDIO));
+                Model mainModel = new Model(id, number, titreShahili, titreEnglish, LyricFavorite, lyric,lyricAudio);
+                model.add(mainModel);
+
+            }
+
+        } finally {
+            if (cursor != null && cursor.isClosed()) {
+                cursor.close();
+                database.close();
+            }
+            pagerhymes= new PagerHymnes(HynesActivity.this, model);
+            viewPager.setAdapter(pagerhymes);
+            viewPager.setCurrentItem(position);
+        }
     }
 
 }

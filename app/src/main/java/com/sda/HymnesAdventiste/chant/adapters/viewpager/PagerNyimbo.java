@@ -1,7 +1,7 @@
 /*
- *  Created by TVB Ledoux on 25/07/22 21:37
+ *  Created by TVB Ledoux on 01/08/22 18:55
  *  Copyright (c) 2022 . All rights reserved.
- *  Last modified 25/07/22 21:17
+ *  Last modified 01/08/22 17:58
  */
 
 package com.sda.HymnesAdventiste.chant.adapters.viewpager;
@@ -56,7 +56,7 @@ public class PagerNyimbo extends PagerAdapter {
     NestedScrollView nestedScrollView;
 
     ImageView zoomIn, zoomOut;
-    float x;
+    float x,y,z;
 
 
     MediaPlayer mediaPlayer;
@@ -142,8 +142,6 @@ public class PagerNyimbo extends PagerAdapter {
         zoomIn = view.findViewById(R.id.zoomIn);
         zoomOut = view.findViewById(R.id.zoomOut);
 
-        float max = 0;
-        float min = 40;
 
         zoomIn.setOnClickListener(new View.OnClickListener() {
 
@@ -152,13 +150,17 @@ public class PagerNyimbo extends PagerAdapter {
             public void onClick(View v) {
 
                 x = lyric.getTextSize();
+                y = titleSwali.getTextSize();
+                z = number.getTextSize();
 
                 if (x <= 40) {
 
                     Toast.makeText(context, R.string.moinsTaille, Toast.LENGTH_SHORT).show();
 
                 } else {
+                    titleSwali.setTextSize(TypedValue.COMPLEX_UNIT_PX, y - 1f);
                     lyric.setTextSize(TypedValue.COMPLEX_UNIT_PX, x - 5f);
+                    number.setTextSize(TypedValue.COMPLEX_UNIT_PX, z - 1.5f);
                 }
 
 
@@ -168,12 +170,18 @@ public class PagerNyimbo extends PagerAdapter {
         zoomOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                y = titleSwali.getTextSize();
                 x = lyric.getTextSize();
+                z = number.getTextSize();
 
                 if (x >= 110) {
                     Toast.makeText(context, R.string.plusTaille, Toast.LENGTH_SHORT).show();
                 } else {
+                    titleSwali.setTextSize(TypedValue.COMPLEX_UNIT_PX, y + 1f);
                     lyric.setTextSize(TypedValue.COMPLEX_UNIT_PX, x + 5f);
+                    number.setTextSize(TypedValue.COMPLEX_UNIT_PX, z + 1.3f);
+
                 }
 
             }
@@ -231,7 +239,7 @@ public class PagerNyimbo extends PagerAdapter {
                                 String headerReceiver = "tete";// Replace with your message.
                                 String bodyMessageFormal = "corp";// Replace with your message.
                                 String whatsappContain = headerReceiver + bodyMessageFormal;
-                                String trimToNumner = "+243 972525920"; //10 digit number
+                                String trimToNumner = "+243 825838806"; //10 digit number
                                 Intent intent = new Intent(Intent.ACTION_VIEW);
                                 intent.setData(Uri.parse("https://wa.me/" + trimToNumner + "/?text=" + var_NB + Html.fromHtml(models.get(position).getNumber() + " - " + models.get(position).getTitleSwahili() + " = (???) ")));
                                 context.startActivity(Intent.createChooser(intent, "Soumettez la reference"));
@@ -565,16 +573,16 @@ public class PagerNyimbo extends PagerAdapter {
                 if (model.getLyricFavorite() == 0){
 
                     model.setLyricFavorite(1);
-                    dBcantique.AddToFavorite(id);
+                    dBcantique.AddToFavorite1(id);
                     AddFavorite.setBackgroundResource(R.drawable.ic_coeur2);
 
-                    Toast.makeText(context, "Vous avez Ajouter ce chant aux favoris", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, R.string.AjoutFavoris, Toast.LENGTH_SHORT).show();
                 }
                 else {
                     model.setLyricFavorite(0);
-                    dBcantique.RemoveToFavorite(models.get(position).getId());
+                    dBcantique.RemoveToFavorite1(models.get(position).getId());
                     AddFavorite.setBackgroundResource(R.drawable.ic_coeur1);
-                    Toast.makeText(context, "Vous avez Supprimer ce chant des favoris", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, R.string.SupFavoris, Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -602,21 +610,6 @@ public class PagerNyimbo extends PagerAdapter {
             }
         });
 
-//        AddFavorite.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                String status = "0";
-//                if (status == "0"){
-//                    status = "1";
-//                    AddFavorite.setImageResource(R.drawable.ic_coeur2);
-//                    Toast.makeText(context, "Vous avez Ajouter ce chant aux favoris", Toast.LENGTH_SHORT).show();
-//                }
-//                else {
-//                    AddFavorite.setImageResource(R.drawable.ic_coeur1);
-//                }
-//            }
-//        });
 
 
         container.addView(view);

@@ -1,7 +1,7 @@
 /*
- *  Created by TVB Ledoux on 25/07/22 18:49
+ *  Created by TVB Ledoux on 01/08/22 18:55
  *  Copyright (c) 2022 . All rights reserved.
- *  Last modified 24/07/22 17:16
+ *  Last modified 01/08/22 15:41
  */
 
 package com.sda.HymnesAdventiste.chant.favoris;
@@ -17,23 +17,23 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
+import com.sda.HymnesAdventiste.R;
+import com.sda.HymnesAdventiste.chant.chantActivity.HynesActivity;
 import com.sda.HymnesAdventiste.chant.chantActivity.NyimboActivity;
 import com.sda.HymnesAdventiste.chant.models.Model;
-import com.sda.HymnesAdventiste.R;
 import com.sda.HymnesAdventiste.database.DBcantique;
-
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FavAdapteur extends RecyclerView.Adapter<FavAdapteur.ViewHolder>{
+public class FavHymnesAdapteur extends RecyclerView.Adapter<FavHymnesAdapteur.ViewHolder>{
 
     Context context;
     ArrayList id, number, titleSwahili, TitleEnglis;
     List<Model> mainModels;
     DBcantique dBcantique;
 
-//    public FavAdapteur(Context context, ArrayList id, ArrayList number, ArrayList titleSwahili, ArrayList titleEnglis) {
+//    public FavNyimboAdapteur(Context context, ArrayList id, ArrayList number, ArrayList titleSwahili, ArrayList titleEnglis) {
 //        this.context = context;
 //        this.id = id;
 //        this.number = number;
@@ -42,14 +42,14 @@ public class FavAdapteur extends RecyclerView.Adapter<FavAdapteur.ViewHolder>{
 //    }
 
 
-    public FavAdapteur(Context context, List<Model> mainModels) {
+    public FavHymnesAdapteur(Context context, List<Model> mainModels) {
         this.context = context;
         this.mainModels = mainModels;
     }
 
     @NonNull
     @Override
-    public FavAdapteur.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public FavHymnesAdapteur.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         DBcantique dBcantique = new DBcantique(context);
         View view = LayoutInflater.from(context).inflate(R.layout.liste_chant, parent, false);
@@ -57,9 +57,9 @@ public class FavAdapteur extends RecyclerView.Adapter<FavAdapteur.ViewHolder>{
     }
 
     @Override
-    public void onBindViewHolder(@NonNull FavAdapteur.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull FavHymnesAdapteur.ViewHolder holder, int position) {
 
-        holder.titreSwahil.setText(mainModels.get(position).getTitleSwahili());
+        holder.titreSwahil.setText(mainModels.get(position).getTitleSwahili().substring(6));
         holder.titreEnglish.setText((mainModels.get(position).getTitleEnglish()));
         holder.number.setText(mainModels.get(position).getNumber());
 
@@ -72,8 +72,8 @@ public class FavAdapteur extends RecyclerView.Adapter<FavAdapteur.ViewHolder>{
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(context, NyimboActivity.class);
-                intent.putExtra("pose", varIndex - 1);
+                Intent intent = new Intent(context, HynesActivity.class);
+                intent.putExtra("pos", varIndex - 1);
 
                 context.startActivity(intent);
                 Animatoo.animateSplit(context);

@@ -1,7 +1,7 @@
 /*
- *  Created by TVB Ledoux on 25/07/22 18:49
+ *  Created by TVB Ledoux on 01/08/22 18:55
  *  Copyright (c) 2022 . All rights reserved.
- *  Last modified 24/07/22 06:00
+ *  Last modified 01/08/22 16:55
  */
 
 package com.sda.HymnesAdventiste.chant.audio;
@@ -19,6 +19,7 @@ public class AudioPlay {
         if (!mediaPlayer.isPlaying()){
 
             mediaPlayer.start();
+            mediaPlayer.setLooping(true);
         }
     }
 

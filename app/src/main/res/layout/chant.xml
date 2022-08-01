@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
-  ~  Created by TVB Ledoux on 25/07/22 18:49
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~  Created by TVB Ledoux on 01/08/22 18:55
   ~  Copyright (c) 2022 . All rights reserved.
-  ~  Last modified 24/07/22 16:20
+  ~  Last modified 01/08/22 17:11
   -->
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -12,7 +11,7 @@
     android:layout_height="match_parent"
     android:background="?attr/primary_fond_chant"
     android:fitsSystemWindows="true"
-    tools:context=".chant.chantActivity.HynesActivity">
+    tools:context=".chant.chantActivity.NyimboActivity">
 
 
     <com.google.android.material.appbar.AppBarLayout
@@ -23,93 +22,84 @@
         app:elevation="0dp"
         app:layout_constraintTop_toTopOf="parent">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/imageBack"
-            android:layout_width="@dimen/_25sdp"
-            android:layout_height="@dimen/_23sdp"
-            android:layout_marginStart="@dimen/_5sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:src="@drawable/ic_bac"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="?attr/texte_primary" />
+            <ImageView
+                android:id="@+id/imageBacke"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_23sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:src="@drawable/ic_bac"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="?attr/texte_primary" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_regular"
-            android:paddingEnd="@dimen/_10sdp"
-            android:text="Hymnes et louanges"
-            android:textColor="?attr/color_icones"
-            android:textSize="@dimen/_14ssp"
-            android:textStyle="bold" />
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-
-            <LinearLayout
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:gravity="center"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent">
+                android:fontFamily="@font/roboto_regular"
+                android:paddingEnd="@dimen/_10sdp"
+                android:text="Hymnes et louanges"
+                android:textColor="?attr/color_icones"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold" />
 
-                <ImageView
-                    android:id="@+id/audio"
-                    android:layout_width="@dimen/_20sdp"
-                    android:layout_height="@dimen/_25sdp"
-                    android:src="@drawable/ic_play_btn"
-                    app:tint="?attr/color_icones" />
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/imageBacks"
-                    android:layout_width="@dimen/_20sdp"
-                    android:layout_height="@dimen/_25sdp"
-                    android:layout_marginStart="@dimen/_14sdp"
-                    android:layout_marginEnd="@dimen/_14sdp"
-                    android:src="@drawable/ic_coeur1"
-                    app:tint="?attr/texte_primary" />
 
-                <ImageView
-                    android:id="@+id/ref"
-                    android:layout_width="@dimen/_24sdp"
-                    android:layout_height="@dimen/_26sdp"
-                    android:layout_marginEnd="@dimen/_14sdp"
-                    android:src="@drawable/ic_change"
-                    app:tint="?attr/texte_primary" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent">
 
-<!--                <TextView-->
-<!--                    android:id="@+id/ref"-->
-<!--                    android:layout_width="@dimen/_24sdp"-->
-<!--                    android:layout_height="@dimen/_24sdp"-->
-<!--                    android:fontFamily="@font/adventpro_regular"-->
-<!--                    android:textColor="?attr/texte_primary_secondaire"-->
-<!--                    android:textSize="@dimen/_24ssp"-->
-<!--                    android:text="T"-->
-<!--                    android:textStyle="bold"/>-->
+                    <ImageView
+                        android:id="@+id/audio"
+                        android:layout_width="@dimen/_24sdp"
+                        android:layout_height="@dimen/_24sdp"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:src="@drawable/ic_play_btn"
+                        app:tint="?attr/color_icones" />
 
-<!--                <ImageView-->
-<!--                    android:id="@+id/imageBacku"-->
-<!--                    android:layout_width="@dimen/_20sdp"-->
-<!--                    android:layout_height="@dimen/_26sdp"-->
-<!--                    android:layout_marginStart="@dimen/_6sdp"-->
-<!--                    android:layout_marginEnd="@dimen/_12sdp"-->
-<!--                    android:src="@drawable/ic_more"-->
-<!--                    app:tint="@color/texte_primary" />-->
+                    <ImageView
+                        android:id="@+id/share"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_26sdp"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:src="@drawable/ic_share"
+                        app:tint="?attr/texte_primary" />
 
-            </LinearLayout>
+                    <ImageView
+                        android:id="@+id/imageFavori1"
+                        android:layout_width="@dimen/_26sdp"
+                        android:layout_height="@dimen/_26sdp"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        android:background="@drawable/ic_coeur1"
+                        app:tint="?attr/texte_primary" />
 
-        </RelativeLayout>
+                    <ImageView
+                        android:id="@+id/ref1"
+                        android:layout_width="@dimen/_26sdp"
+                        android:layout_height="@dimen/_26sdp"
+                        android:layout_marginEnd="@dimen/_14sdp"
+                        android:src="@drawable/ic_change"
+                        app:tint="?attr/texte_primary" />
 
-    </com.google.android.material.appbar.MaterialToolbar>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </com.google.android.material.appbar.MaterialToolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
 
@@ -117,14 +107,14 @@
         android:id="@+id/scrollv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/_4sdp"
         android:layout_marginTop="@dimen/_44sdp"
+        android:layout_marginRight="@dimen/_4sdp"
         android:layout_marginBottom="@dimen/_4sdp"
         android:background="@drawable/bg_chant"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/appBar"
-        app:layout_constraintTop_toTopOf="@id/appBar"
-        app:layout_constraintVertical_bias="1.0"
-        tools:layout_editor_absoluteX="10dp">
+        app:layout_constraintTop_toTopOf="@id/appBar">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -134,6 +124,7 @@
 
 
             <View
+                android:id="@+id/barTop"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_1sdp"
                 android:layout_marginStart="@dimen/_18sdp"
@@ -151,16 +142,16 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/doh"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/_18sdp"
-                        android:fontFamily="@font/roboto_regular"
-                        android:text="Clé: D"
-                        android:textColor="?attr/auteur_chant"
-                        android:textSize="@dimen/_16ssp"
-                        android:textStyle="bold" />
+                    <!--                    <TextView-->
+                    <!--                        android:id="@+id/doh"-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:fontFamily="@font/roboto_regular"-->
+                    <!--                        android:textColor="?attr/auteur_chant"-->
+                    <!--                        android:textSize="@dimen/_16ssp"-->
+                    <!--                        android:layout_marginLeft="@dimen/_18sdp"-->
+                    <!--                        android:text="Doh is G"-->
+                    <!--                        android:textStyle="bold"/>-->
                     <!--                    <TextView-->
                     <!--                        android:id="@+id/refEnglais"-->
                     <!--                        android:layout_width="match_parent"-->
@@ -192,7 +183,7 @@
                     android:layout_alignRight="@id/movie_texte"
                     android:layout_marginRight="@dimen/_16sdp"
                     android:fontFamily="@font/roboto_regular"
-                    android:text="NZK:110"
+                    android:text="@string/h_l_496"
                     android:textColor="?attr/auteur_chant"
                     android:textSize="@dimen/_14ssp"
                     android:textStyle="bold" />
@@ -257,15 +248,52 @@
 
     </androidx.core.widget.NestedScrollView>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <RelativeLayout
+        android:id="@+id/zoom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/_16sdp"
-        android:layout_marginBottom="@dimen/_12sdp"
-        android:background="?attr/texte_primary"
-        android:src="@drawable/ic_keypad"
-        android:tint="?attr/color_icones"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_sheet_nzk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:background="?attr/texte_primary"
+            android:src="@drawable/ic_keypad"
+            android:tint="?attr/color_icones" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_24sdp">
+
+            <ImageView
+                android:id="@+id/zoomIn"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_28sdp"
+                android:background="@drawable/zoom_in"
+                android:src="@drawable/ic_zoom_out"
+                app:tint="?attr/color_icones" />
+
+            <ImageView
+                android:id="@+id/zoomOut"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_28sdp"
+                android:layout_toRightOf="@id/zoomIn"
+                android:background="@drawable/zoom_out"
+                android:src="@drawable/ic_zoom_in"
+                app:tint="?attr/color_icones" />
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

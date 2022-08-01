@@ -1,7 +1,7 @@
 /*
- *  Created by TVB Ledoux on 25/07/22 18:49
+ *  Created by TVB Ledoux on 01/08/22 18:55
  *  Copyright (c) 2022 . All rights reserved.
- *  Last modified 24/07/22 16:32
+ *  Last modified 01/08/22 13:22
  */
 
 package com.sda.HymnesAdventiste.chant;
@@ -370,7 +370,7 @@ public class Nyimbo_z_kristo extends AppCompatActivity {
     private void storeDataInArray() {
 
         SQLiteDatabase database = dBcantique.getReadableDatabase();
-        Cursor cursor = dBcantique.readAllData();
+        Cursor cursor = dBcantique.readAllData1();
         try {
             while (cursor.moveToNext()){
                 int id = Integer.parseInt(cursor.getString(cursor.getColumnIndex(dBcantique.ID1)));

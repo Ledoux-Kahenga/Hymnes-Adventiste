@@ -1,7 +1,7 @@
 /*
- *  Created by TVB Ledoux on 10/07/22 22:19
+ *  Created by TVB Ledoux on 01/08/22 18:55
  *  Copyright (c) 2022 . All rights reserved.
- *  Last modified 10/07/22 22:15
+ *  Last modified 27/07/22 00:02
  */
 
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
@@ -9,6 +9,7 @@ buildscript {
     repositories {
         google()
         jcenter()
+        mavenCentral()
     }
     dependencies {
         classpath "com.android.tools.build:gradle:4.1.3"

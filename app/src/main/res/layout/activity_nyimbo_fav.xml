@@ -1,20 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~  Created by TVB Ledoux on 23/07/22 20:59
+  ~  Created by TVB Ledoux on 01/08/22 18:55
   ~  Copyright (c) 2022 . All rights reserved.
-  ~  Last modified 20/07/22 19:18
+  ~  Last modified 01/08/22 18:53
   -->
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="?attr/primary_fond"
+tools:context=".chant.Nyimbo_z_kristo">
+
+<ImageView
+    android:id="@+id/imageBack"
+    android:layout_width="@dimen/_25sdp"
+    android:layout_height="@dimen/_23sdp"
+    android:layout_marginStart="@dimen/_8sdp"
+    android:layout_marginTop="@dimen/_10sdp"
+    android:layout_marginEnd="@dimen/_15sdp"
+    android:src="@drawable/ic_bac"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:tint="?attr/texte_primary" />
+
+
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".chant.favoris.NyimboFav">
+    android:layout_marginTop="@dimen/_16sdp"
+    android:orientation="vertical"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/recherche_layout">
+
+    <TextView
+        android:id="@+id/nzk_"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:fontFamily="@font/roboto_regular"
+        android:paddingBottom="@dimen/_16sdp"
+        android:text="Mes favoris"
+        android:textColor="?attr/texte_primary"
+        android:textSize="@dimen/_24ssp"
+        android:textStyle="bold"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerNyimboFav"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"
+        android:background="?attr/primary_fond" />
+</LinearLayout>
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
