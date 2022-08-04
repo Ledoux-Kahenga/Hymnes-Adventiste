@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Created by TVB Ledoux on 04/08/22 11:54
+  ~  Copyright (c) 2022 . All rights reserved.
+  ~  Last modified 04/08/22 11:48
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_principal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/_5sdp"
+    android:layout_marginEnd="@dimen/_5sdp"
+    android:layout_marginBottom="@dimen/_3sdp"
+    android:background="@drawable/bg_item"
+    android:clickable="true"
+    android:elevation="0dp"
+    android:focusable="true">
+
+    <TextView
+        android:id="@+id/liste_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_margin="@dimen/_5sdp"
+        android:background="@drawable/bg_item_num"
+        android:fontFamily="@font/merienda_regular"
+        android:padding="@dimen/_4sdp"
+        android:text="001"
+        android:textColor="?attr/titre_chant"
+        android:textSize="@dimen/_20ssp" />
+
+    <TextView
+        android:id="@+id/liste_titre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_toRightOf="@+id/liste_num"
+        android:fontFamily="@font/roboto_regular"
+        android:paddingLeft="@dimen/_3sdp"
+        android:text="Titre"
+        android:textAppearance="?attr/textAppearanceBody2"
+        android:textColor="?attr/texte_primary"
+        android:textSize="@dimen/_16ssp"/>
+
+    <TextView
+        android:id="@+id/liste_auteur"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/liste_titre"
+        android:layout_toEndOf="@+id/liste_num"
+        android:fontFamily="@font/merienda_regular"
+        android:paddingLeft="@dimen/_3sdp"
+        android:paddingBottom="@dimen/_10sdp"
+        android:textColor="?attr/color_icones"
+        android:textSize="@dimen/_10ssp"
+        android:textStyle="bold"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/liste_conteu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/liste_titre"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_toEndOf="@+id/liste_num"
+        android:fontFamily="@font/abel_regular"
+        android:paddingLeft="@dimen/_3sdp"
+        android:paddingBottom="@dimen/_20sdp"
+        android:text="Contenu"
+        android:textColor="?attr/color_icones"
+        android:textSize="@dimen/_10ssp"
+        android:visibility="gone"/>
+
+</RelativeLayout>

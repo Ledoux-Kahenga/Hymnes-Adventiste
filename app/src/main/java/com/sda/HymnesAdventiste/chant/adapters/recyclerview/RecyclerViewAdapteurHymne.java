@@ -1,7 +1,7 @@
 /*
- *  Created by TVB Ledoux on 01/08/22 18:55
+ *  Created by TVB Ledoux on 04/08/22 11:54
  *  Copyright (c) 2022 . All rights reserved.
- *  Last modified 01/08/22 15:39
+ *  Last modified 04/08/22 06:54
  */
 
 package com.sda.HymnesAdventiste.chant.adapters.recyclerview;
@@ -54,7 +54,7 @@ public class RecyclerViewAdapteurHymne extends RecyclerView.Adapter<RecyclerView
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.liste_chant, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.liste_chant1, parent, false);
         return new ViewHolder(view);
     }
 

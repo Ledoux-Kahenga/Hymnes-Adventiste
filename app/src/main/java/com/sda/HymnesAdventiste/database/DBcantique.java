@@ -1,7 +1,7 @@
 /*
- *  Created by TVB Ledoux on 01/08/22 18:55
+ *  Created by TVB Ledoux on 04/08/22 11:54
  *  Copyright (c) 2022 . All rights reserved.
- *  Last modified 01/08/22 18:53
+ *  Last modified 04/08/22 09:18
  */
 
 package com.sda.HymnesAdventiste.database;
@@ -15,7 +15,7 @@ import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
 public class DBcantique extends SQLiteAssetHelper {
 
-    private static final String DATABASE_NAME = "SongDbLyri.db";
+    private static final String DATABASE_NAME = "SongDbLyri1.db";
     private static final int DATABASE_VERSION = 1;
     public static String ID = "_id";
     public static String SONG_NUMBER = "numberLyric";
